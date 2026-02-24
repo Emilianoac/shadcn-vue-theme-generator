@@ -7,6 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/shadcn-vue-theme-generator",
   plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
     alias: {
