@@ -14,7 +14,7 @@ import Payments from "@/components/editor/examples/cards/Payments.vue";
 </script>
 
 <template>
-  <div class="@container/examples p-8 border overflow-y-auto h-full">
+  <div class="@container/examples p-0 md:p-8 md:border overflow-y-auto h-full">
     <div class="grid grid-cols-1 @5xl:grid-cols-4 gap-4 items-start">
       <!--COLUMN 1-->
       <div class="grid col-span-2 gap-4 min-w-0">
