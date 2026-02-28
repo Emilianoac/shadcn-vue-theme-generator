@@ -1,68 +1,58 @@
 <script lang="ts" setup>
-import ExerciseMinutes from "@/components/editor/examples/cards/ExerciseMinutes.vue";
-import Calendar from "@/components/editor/examples/cards/Calendar.vue";
-import Stats from "@/components/editor/examples/cards/Stats.vue";
-import ActivityGoal from "@/components/editor/examples/cards/ActivityGoal.vue";
-import Forms from "@/components/editor/examples/cards/Forms.vue";
-import TeamMembers from "@/components/editor/examples/cards/TeamMembers.vue";
-import CookieSettings from "@/components/editor/examples/cards/CookieSettings.vue";
-import CreateAccount from "@/components/editor/examples/cards/CreateAccount.vue";
-import Chat from "@/components/editor/examples/cards/Chat.vue";
-import ReportIssue from "@/components/editor/examples/cards/ReportIssue.vue";
-import Share from "@/components/editor/examples/cards/Share.vue";
-import Payments from "@/components/editor/examples/cards/Payments.vue";
+import { computed, ref } from "vue";
+import examples from "@/data/examples/index";
+
+import ExamplesList from "@/components/editor/examples/ExamplesList.vue";
+import ExamplesDisplayArea from "@/components/editor/examples/ExamplesDisplayArea.vue";
+
+const selectedId = ref(examples.blocks.items[0]?.id ?? null);
+const searchQuery = ref("");
+
+const filteredExamples = computed(() => {
+  const query = searchQuery.value.toLowerCase().trim();
+  if (!query) return examples;
+
+  const result: Record<
+    string,
+    { name: string; items: (typeof examples)[keyof typeof examples]["items"] }
+  > = {};
+
+  for (const [key, group] of Object.entries(examples)) {
+    const filteredItems = group.items.filter((item) => item.name.toLowerCase().includes(query));
+
+    if (filteredItems.length > 0) {
+      result[key] = {
+        ...group,
+        items: filteredItems,
+      };
+    }
+  }
+  return result;
+});
+
+const currentComponent = computed(() => {
+  for (const group of Object.values(examples)) {
+    const found = group.items.find((item) => item.id === selectedId.value);
+    if (found) return found;
+  }
+  return null;
+});
+
+function handleSelect(id: string) {
+  selectedId.value = id;
+}
 </script>
 
 <template>
-  <div class="@container/examples p-0 md:p-8 md:border overflow-y-auto h-full">
-    <div class="grid grid-cols-1 @5xl:grid-cols-4 gap-4 items-start">
-      <!--COLUMN 1-->
-      <div class="grid col-span-2 gap-4 min-w-0">
-        <div class="min-w-0">
-          <Stats />
-        </div>
+  <div class="grid grid-cols-1 lg:grid-cols-[180px_1fr] h-full gap-4">
+    <ExamplesList
+      :searchQuery="searchQuery"
+      :selectedId="selectedId"
+      :filteredExamples="filteredExamples"
+      :handleSelect="handleSelect"
+    />
 
-        <div class="grid grid-cols-1 @7xl:grid-cols-2 gap-4 items-start">
-          <div class="grid gap-4">
-            <div class="min-w-0 space-y-4">
-              <Forms />
-              <TeamMembers />
-              <CookieSettings />
-            </div>
-          </div>
-          <div class="grid gap-4">
-            <div class="min-w-0 space-y-4">
-              <CreateAccount />
-              <Chat />
-              <ReportIssue />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--COLUMN 2-->
-      <div class="grid col-span-2 gap-4 min-w-0 grid-cols-1 @lg:grid-cols-[auto_1fr]">
-        <Calendar class="hidden @lg:flex" />
-
-        <div class="min-w-0">
-          <ActivityGoal />
-        </div>
-
-        <div class="grid gap-4 col-span-full">
-          <div class="min-w-0">
-            <ExerciseMinutes />
-          </div>
-
-          <div class="min-w-0">
-            <Payments />
-          </div>
-
-          <div class="min-w-0">
-            <Share />
-          </div>
-        </div>
-      </div>
-    </div>
+    <ExamplesDisplayArea :currentComponent="currentComponent" />
   </div>
 </template>
 
