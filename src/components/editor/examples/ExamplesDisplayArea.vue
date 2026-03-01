@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <!-- Example Display Area -->
   <div class="flex gap-4 flex-col overflow-hidden" v-if="currentComponent">
-    <div class="flex justify-between items-center flex-wrap gap-2 p-1">
+    <div class="flex justify-between items-center flex-wrap gap-4 p-1">
       <div>
         <h2 class="font-bold mb-1">{{ currentComponent.name }}</h2>
         <p class="max-w-150 text-muted-foreground text-sm" v-if="currentComponent.description">
