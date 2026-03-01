@@ -66,6 +66,9 @@ import {
   Tooltip,
 } from "@/data/examples/examples-components";
 
+const COMPONENT_SOURCE_CODE_URL_BASE =
+  "https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui";
+
 const examples = {
   blocks: {
     name: "Screens",
@@ -79,6 +82,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
+        componentSourceCodeUrl: null,
       },
       {
         id: "area-chart-screen",
@@ -88,6 +92,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
+        componentSourceCodeUrl: null,
       },
       {
         id: "bar-chart-screen",
@@ -97,6 +102,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
+        componentSourceCodeUrl: null,
       },
       {
         id: "line-chart-screen",
@@ -106,6 +112,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
+        componentSourceCodeUrl: null,
       },
       {
         id: "pie-chart-screen",
@@ -115,6 +122,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
+        componentSourceCodeUrl: null,
       },
     ],
   },
@@ -131,6 +139,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/accordion`,
       },
       {
         id: "alert",
@@ -140,6 +149,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/alert`,
       },
       {
         id: "alert-dialog",
@@ -150,6 +160,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/alert-dialog`,
       },
       {
         id: "aspect-ratio",
@@ -159,6 +170,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/aspect-ratio`,
       },
       {
         id: "avatar",
@@ -168,6 +180,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/avatar`,
       },
       {
         id: "badge",
@@ -177,6 +190,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/badge`,
       },
       {
         id: "breadcrumb",
@@ -186,6 +200,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/breadcrumb`,
       },
       {
         id: "button",
@@ -195,6 +210,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/button`,
       },
       {
         id: "button-group",
@@ -204,6 +220,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/button-group`,
       },
       {
         id: "calendar",
@@ -213,6 +230,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/calendar`,
       },
       {
         id: "card",
@@ -222,6 +240,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/card`,
       },
       {
         id: "carousel",
@@ -231,6 +250,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/carousel`,
       },
       {
         id: "chart",
@@ -240,6 +260,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/chart`,
       },
       {
         id: "checkbox",
@@ -249,6 +270,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/checkbox`,
       },
       {
         id: "collapsible",
@@ -258,6 +280,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/collapsible`,
       },
       {
         id: "combobox",
@@ -267,6 +290,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/combobox`,
       },
       {
         id: "command",
@@ -276,6 +300,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/command`,
       },
       {
         id: "context-menu",
@@ -286,6 +311,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/context-menu`,
       },
       {
         id: "date-picker",
@@ -295,6 +321,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/date-picker`,
       },
       {
         id: "dialog",
@@ -305,6 +332,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/dialog`,
       },
       {
         id: "drawer",
@@ -314,6 +342,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/drawer`,
       },
       {
         id: "dropdown-menu",
@@ -324,6 +353,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/dropdown-menu`,
       },
       {
         id: "empty",
@@ -333,6 +363,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/empty`,
       },
       {
         id: "field",
@@ -343,6 +374,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/field`,
       },
       {
         id: "hover-card",
@@ -352,6 +384,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/hover-card`,
       },
       {
         id: "input",
@@ -361,6 +394,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/input`,
       },
       {
         id: "input-group",
@@ -370,6 +404,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/input-group`,
       },
       {
         id: "input-otp",
@@ -379,6 +414,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/input-otp`,
       },
       {
         id: "kbd",
@@ -388,6 +424,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/kbd`,
       },
       {
         id: "label",
@@ -397,6 +434,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/label`,
       },
       {
         id: "menubar",
@@ -407,6 +445,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/menubar`,
       },
       {
         id: "native-select",
@@ -417,6 +456,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/native-select`,
       },
       {
         id: "navigation-menu",
@@ -426,6 +466,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/navigation-menu`,
       },
       {
         id: "number-field",
@@ -436,6 +477,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/number-field`,
       },
       {
         id: "pagination",
@@ -445,6 +487,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/pagination`,
       },
       {
         id: "popover",
@@ -454,6 +497,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/popover`,
       },
       {
         id: "progress",
@@ -464,6 +508,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/progress`,
       },
       {
         id: "radio-group",
@@ -474,6 +519,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/radio-group`,
       },
       {
         id: "range-calendar",
@@ -483,6 +529,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/range-calendar`,
       },
       {
         id: "resizable",
@@ -492,6 +539,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/resizable`,
       },
       {
         id: "scroll-area",
@@ -501,6 +549,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/scroll-area`,
       },
       {
         id: "select",
@@ -510,6 +559,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/select`,
       },
       {
         id: "separator",
@@ -519,6 +569,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/separator`,
       },
       {
         id: "sheet",
@@ -529,6 +580,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/sheet`,
       },
       {
         id: "sidebar",
@@ -538,6 +590,7 @@ const examples = {
         previewLayout: "full-height",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/sidebar`,
       },
       {
         id: "skeleton",
@@ -547,6 +600,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/skeleton`,
       },
       {
         id: "slider",
@@ -556,6 +610,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/slider`,
       },
       {
         id: "sonner",
@@ -565,6 +620,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/sonner`,
       },
       {
         id: "spinner",
@@ -574,6 +630,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/spinner`,
       },
       {
         id: "stepper",
@@ -584,6 +641,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/stepper`,
       },
       {
         id: "switch",
@@ -593,6 +651,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/switch`,
       },
       {
         id: "table",
@@ -602,6 +661,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/table`,
       },
       {
         id: "tabs",
@@ -612,6 +672,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/tabs`,
       },
       {
         id: "tags-input",
@@ -621,6 +682,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/tags-input`,
       },
       {
         id: "textarea",
@@ -630,6 +692,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/textarea`,
       },
       {
         id: "toggle",
@@ -639,6 +702,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/toggle`,
       },
       {
         id: "toggle-group",
@@ -648,6 +712,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/toggle-group`,
       },
       {
         id: "tooltip",
@@ -658,6 +723,7 @@ const examples = {
         previewLayout: "default",
         deprecated: false,
         visible: true,
+        componentSourceCodeUrl: `${COMPONENT_SOURCE_CODE_URL_BASE}/tooltip`,
       },
     ],
   },
