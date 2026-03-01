@@ -50,6 +50,7 @@ function handleSelect(id: string) {
       :selectedId="selectedId"
       :filteredExamples="filteredExamples"
       :handleSelect="handleSelect"
+      @update:search-query="searchQuery = $event"
     />
 
     <ExamplesDisplayArea :currentComponent="currentComponent" />
