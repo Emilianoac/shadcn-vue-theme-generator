@@ -19,7 +19,6 @@ const model = defineModel<string>();
       >
         <input
           v-model="model"
-          @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
           class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
           type="color"
         />
