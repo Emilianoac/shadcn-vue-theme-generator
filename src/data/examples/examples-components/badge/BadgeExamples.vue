@@ -13,7 +13,7 @@ import BadgeCustomColorsRaw from "./BadgeCustomColors.vue?raw";
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-8 max-w-200 mx-auto">
     <ExampleCard :raw-component="BadgeVariantsRaw">
       <template #title>Variants</template>
       <template #example>

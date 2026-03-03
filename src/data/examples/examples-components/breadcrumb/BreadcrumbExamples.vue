@@ -13,7 +13,7 @@ import BreadcrumbDropdownRaw from "./BreadcrumbDropdown.vue?raw";
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-8 max-w-200 mx-auto">
     <ExampleCard :raw-component="BreadcrumbDefaultRaw">
       <template #title>Default</template>
       <template #example>
