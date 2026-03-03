@@ -1,6 +1,6 @@
-export { default as Accordion } from "./ComponentAccordion.vue";
-export { default as Alert } from "./ComponentAlert.vue";
-export { default as AlertDialog } from "./ComponentAlertDialog.vue";
+export { default as Accordion } from "./accordion/AccordionExamples.vue";
+export { default as Alert } from "./alert/AlertExamples.vue";
+export { default as AlertDialog } from "./alert-dialog/AlertDialogExamples.vue";
 export { default as AspectRatio } from "./ComponentAspectRatio.vue";
 export { default as Avatar } from "./ComponentAvatar.vue";
 export { default as Badge } from "./ComponentBadge.vue";

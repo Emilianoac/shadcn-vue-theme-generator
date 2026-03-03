@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <Accordion type="single" collapsible class="w-full max-w-150 mx-auto" default-value="item-1">
+  <Accordion type="multiple" default-value="item-1">
     <AccordionItem value="item-1">
       <AccordionTrigger>Product Information</AccordionTrigger>
       <AccordionContent>
@@ -50,3 +50,5 @@ import {
     </AccordionItem>
   </Accordion>
 </template>
+
+<style lang="postcss" scoped></style>

@@ -1,21 +1,15 @@
-<script setup lang="ts">
-import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-vue-next";
+<script lang="ts" setup>
+import { AlertCircleIcon } from "lucide-vue-next";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 </script>
 
 <template>
-  <div class="grid w-full max-w-150 items-start gap-4 mx-auto">
-    <Alert>
-      <CheckCircle2Icon />
-      <AlertTitle>Success! Your changes have been saved</AlertTitle>
-      <AlertDescription> This is an alert with icon, title and description. </AlertDescription>
+  <div class="max-w-150 mx-auto space-y-6">
+    <Alert variant="destructive">
+      <AlertCircleIcon />
+      <AlertTitle>Something went wrong!</AlertTitle>
+      <AlertDescription> Your session has expired. Please log in again. </AlertDescription>
     </Alert>
-
-    <Alert>
-      <PopcornIcon />
-      <AlertTitle>This Alert has a title and an icon. No description.</AlertTitle>
-    </Alert>
-
     <Alert variant="destructive">
       <AlertCircleIcon />
       <AlertTitle>Unable to process your payment.</AlertTitle>
@@ -30,3 +24,5 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
     </Alert>
   </div>
 </template>
+
+<style lang="postcss" scoped></style>
