@@ -92,8 +92,8 @@ export const dark = {
   "destructive": "oklch(0.704 0.191 22.216)",
   "destructive-foreground": "oklch(0.985 0 0)",
 
-  "border": "oklch(1 0 0 / 10%)",
-  "input": "oklch(1 0 0 / 15%)",
+  "border": "oklch(0.2750 0 0)",
+  "input": "oklch(0.3250 0 0)",
   "ring": "oklch(0.556 0 0)",
 
   "chart-1": "oklch(0.488 0.243 264.376)",
@@ -140,4 +140,3 @@ export const defaultTheme = {
   light,
   dark,
 };
-
