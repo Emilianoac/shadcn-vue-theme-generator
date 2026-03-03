@@ -4,7 +4,7 @@ export { default as AlertDialog } from "./alert-dialog/AlertDialogExamples.vue";
 export { default as AspectRatio } from "./aspect-ratio/AspectRatioExamples.vue";
 export { default as Avatar } from "./avatar/AvatarExamples.vue";
 export { default as Badge } from "./badge/BadgeExamples.vue";
-export { default as Breadcrumb } from "./ComponentBreadcrumb.vue";
+export { default as Breadcrumb } from "./breadcrumb/BreadcrumbExamples.vue";
 export { default as Button } from "./ComponentButton.vue";
 export { default as ButtonGroup } from "./ComponentButtonGroup.vue";
 export { default as Calendar } from "./ComponentCalendar.vue";

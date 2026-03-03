@@ -2,35 +2,32 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbEllipsis,
   BreadcrumbList,
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Slash } from "lucide-vue-next";
 </script>
 
 <template>
-  <Breadcrumb class="w-full max-w-150 mx-auto">
+  <Breadcrumb>
     <BreadcrumbList>
       <BreadcrumbItem>
         <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        <BreadcrumbSeparator />
+        <BreadcrumbSeparator>
+          <Slash />
+        </BreadcrumbSeparator>
       </BreadcrumbItem>
       <BreadcrumbItem>
         <BreadcrumbLink href="#">Library</BreadcrumbLink>
-        <BreadcrumbSeparator />
+        <BreadcrumbSeparator>
+          <Slash />
+        </BreadcrumbSeparator>
       </BreadcrumbItem>
       <BreadcrumbItem>
-        <BreadcrumbLink href="#">Data</BreadcrumbLink>
-        <BreadcrumbSeparator />
-      </BreadcrumbItem>
-      <BreadcrumbEllipsis />
-      <BreadcrumbItem>
-        <BreadcrumbPage>Bootstrap</BreadcrumbPage>
+        <BreadcrumbPage>Data</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>
 </template>
-
-<style lang="postcss" scoped></style>
