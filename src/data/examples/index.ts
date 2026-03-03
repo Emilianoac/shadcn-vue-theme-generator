@@ -82,7 +82,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
-        componentSourceCodeUrl: null,
+        componentSourceCodeUrl: "",
       },
       {
         id: "area-chart-screen",
@@ -92,7 +92,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
-        componentSourceCodeUrl: null,
+        componentSourceCodeUrl: "",
       },
       {
         id: "bar-chart-screen",
@@ -102,7 +102,7 @@ const examples = {
         deprecated: false,
         visible: true,
         description: "",
-        componentSourceCodeUrl: null,
+        componentSourceCodeUrl: "",
       },
       {
         id: "line-chart-screen",
