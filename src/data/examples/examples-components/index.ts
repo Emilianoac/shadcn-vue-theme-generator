@@ -2,7 +2,7 @@ export { default as Accordion } from "./accordion/AccordionExamples.vue";
 export { default as Alert } from "./alert/AlertExamples.vue";
 export { default as AlertDialog } from "./alert-dialog/AlertDialogExamples.vue";
 export { default as AspectRatio } from "./aspect-ratio/AspectRatioExamples.vue";
-export { default as Avatar } from "./ComponentAvatar.vue";
+export { default as Avatar } from "./avatar/AvatarExamples.vue";
 export { default as Badge } from "./ComponentBadge.vue";
 export { default as Breadcrumb } from "./ComponentBreadcrumb.vue";
 export { default as Button } from "./ComponentButton.vue";
