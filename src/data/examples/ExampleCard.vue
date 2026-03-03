@@ -14,7 +14,7 @@ const { copy, copied } = useClipboard({
 </script>
 
 <template>
-  <div class="space-y-2">
+  <div class="space-y-2 h-full flex flex-col">
     <div class="flex justify-between items-center">
       <span class="block text-sm text-muted-foreground">
         <slot name="title" />
@@ -34,7 +34,7 @@ const { copy, copied } = useClipboard({
         </Tooltip>
       </TooltipProvider>
     </div>
-    <div class="border border-dashed p-6">
+    <div class="border border-dashed p-6 flex-1">
       <slot name="example" />
     </div>
   </div>
