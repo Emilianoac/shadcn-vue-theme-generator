@@ -2,8 +2,14 @@
 import { computed } from "vue";
 import { useColorMode } from "@vueuse/core";
 import { useTheme } from "@/composables/useTheme";
-import SidebarControlGroup from "../SidebarControlGroup.vue";
 import ColorPickerField from "./shared/ColorPickerField.vue";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const { theme } = useTheme();
 const colorMode = useColorMode();
@@ -124,20 +130,29 @@ const COLOR_GROUPS = [
 
 <template>
   <div>
-    <SidebarControlGroup
+    <Accordion
       v-for="(group, id) in COLOR_GROUPS"
       :key="id"
-      :title="group.title"
-      :default-open="group.isOpenByDefault"
+      type="multiple"
+      class="border-b overflow-hidden"
     >
-      <div class="space-y-4">
-        <ColorPickerField
-          v-for="field in group.fields"
-          :key="field.key"
-          :label="field.label"
-          v-model="theme.data[mode][field.key]"
-        />
-      </div>
-    </SidebarControlGroup>
+      <AccordionItem :value="group.id" :unmount-on-hide="false">
+        <AccordionTrigger
+          class="p-4 py-3 text-xs font-semibold hover:bg-accent/30 cursor-pointer hover:no-underline rounded-none"
+        >
+          {{ group.title }}
+        </AccordionTrigger>
+        <AccordionContent class="pt-2 pb-6 px-4">
+          <div class="space-y-4">
+            <ColorPickerField
+              v-for="field in group.fields"
+              :key="field.key"
+              :label="field.label"
+              v-model="theme.data[mode][field.key]"
+            />
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   </div>
 </template>
