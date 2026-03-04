@@ -22,7 +22,7 @@ const tabs = [
 </script>
 
 <template>
-  <Tabs default-value="colors" class="flex min-h-0 w-full flex-1 flex-col">
+  <Tabs default-value="colors" class="flex min-h-0 w-full flex-1 flex-col" :unmount-on-hide="false">
     <TabsList class="bg-transparent p-4 justify-start border-b rounded-none h-14">
       <TabsTrigger
         v-for="tab in tabs"
