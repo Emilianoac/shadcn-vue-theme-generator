@@ -1,16 +1,9 @@
 <script lang="ts" setup>
-import { useClipboard } from "@vueuse/core";
-import { Copy, Check } from "lucide-vue-next";
-import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import CoppyButton from "@/components/global/CoppyButton.vue";
 
 const props = defineProps<{
   rawComponent: string;
 }>();
-
-const { copy, copied } = useClipboard({
-  source: props.rawComponent,
-});
 </script>
 
 <template>
@@ -20,19 +13,7 @@ const { copy, copied } = useClipboard({
         <slot name="title" />
       </span>
 
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button @click="copy()" variant="ghost" size="icon-sm">
-              <Copy v-if="!copied" />
-              <Check v-else />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Copy to clipboard</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <CoppyButton :show-text="false" :show-tooltip="true" :textToCopy="props.rawComponent" />
     </div>
     <div class="border border-dashed p-6 flex-1">
       <slot name="example" />
