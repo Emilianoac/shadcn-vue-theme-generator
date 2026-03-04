@@ -2,11 +2,8 @@
 import EditorSidebar from "@/components/editor/EditorSidebar.vue";
 import EditorExamples from "@/components/editor/EditorExamples.vue";
 import EditorHeader from "@/components/editor/EditorHeader.vue";
-import EditorThemeSelector from "@/components/editor/EditorThemeSelector.vue";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { useTheme } from "@/composables/useTheme";
-
-const { theme, themeId, setTheme } = useTheme();
+import EditorActions from "@/components/editor/EditorActions.vue";
 </script>
 
 <template>
@@ -14,16 +11,11 @@ const { theme, themeId, setTheme } = useTheme();
     <EditorHeader class="h-(--header-height) shrink-0 border-b" />
     <SidebarProvider class="flex-1! min-h-0! overflow-hidden! [--sidebar-width:17rem]!">
       <SidebarInset class="flex flex-col min-h-0! overflow-hidden min-w-0!">
-        <header class="flex justify-between h-14 items-center gap-2 px-4 border-b shrink-0">
-          <EditorThemeSelector
-            class="relative"
-            :current-theme-name="theme.name"
-            :current-theme-id="themeId"
-            @select="(id) => setTheme(id)"
-          />
-          <SidebarTrigger />
-        </header>
-
+        <EditorActions>
+          <template #sidebar-trigger>
+            <SidebarTrigger />
+          </template>
+        </EditorActions>
         <main class="flex-1 overflow-y-hidden p-4">
           <EditorExamples />
         </main>
