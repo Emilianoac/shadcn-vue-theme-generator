@@ -1,6 +1,7 @@
 import { themes, type ThemeId } from "@/data/themes";
 import type { ThemeService } from "./theme.interface";
 import { fontService } from "@/services/font/fontService";
+import { generateThemeCssCode, objectToCssVariables } from "./themeCode.utils";
 
 const STORAGE_KEY = "current-theme";
 
@@ -21,17 +22,17 @@ export function createThemeService(): ThemeService {
 
       styleEl.textContent = `
         :root {
-          ${Object.entries(theme.data.light)
-            .map(([key, value]) => `--${key}: ${value};`)
-            .join("\n")}
+          ${objectToCssVariables(theme.data.light)}
         }
 
         :root.dark {
-          ${Object.entries(theme.data.dark)
-            .map(([key, value]) => `--${key}: ${value};`)
-            .join("\n")}
+          ${objectToCssVariables(theme.data.dark)}
         }
       `;
+    },
+
+    generateThemeCssCode(theme) {
+      return generateThemeCssCode(theme);
     },
 
     loadTheme() {
