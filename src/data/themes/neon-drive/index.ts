@@ -42,29 +42,7 @@ export const light = {
   "sidebar-border": "oklch(0.88 0.02 200)",
   "sidebar-ring": "oklch(0.85 0.15 170)",
 
-  "font-sans": "'Inter', 'Hanken Grotesk', sans-serif",
-  "font-serif": "ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif",
-  "font-mono": "'Fira Code', 'IBM Plex Mono', monospace",
-
   "radius": "0.5rem",
-
-  "shadow-x": "0",
-  "shadow-y": "1px",
-  "shadow-blur": "3px",
-  "shadow-spread": "0px",
-  "shadow-opacity": 0.05,
-  "shadow-color": "oklch(0.20 0.05 200)",
-  "shadow-2xs": "0 1px 2px rgba(0,0,0,0.05)",
-  "shadow-xs": "0 1px 3px rgba(0,0,0,0.1)",
-  "shadow-sm": "0 2px 4px rgba(0,0,0,0.1)",
-  "shadow": "0 4px 6px -1px rgba(0,0,0,0.1)",
-  "shadow-md": "0 10px 15px -3px rgba(0,0,0,0.1)",
-  "shadow-lg": "0 20px 25px -5px rgba(0,0,0,0.1)",
-  "shadow-xl": "0 25px 50px -12px rgba(0,0,0,0.2)",
-  "shadow-2xl": "0 30px 60px -12px rgba(0,0,0,0.25)",
-
-  "spacing": "0.25rem",
-  "tracking-normal": "0em",
 };
 
 export const dark = {
@@ -111,34 +89,10 @@ export const dark = {
   "sidebar-border": "oklch(0.35 0.05 200)",
   "sidebar-ring": "oklch(0.85 0.15 170)",
 
-  "font-sans": "'Inter', 'Hanken Grotesk', sans-serif",
-  "font-serif": 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-  "font-mono": "'Fira Code', 'IBM Plex Mono', monospace",
-
   "radius": "0.5rem",
-
-  "shadow-x": "0",
-  "shadow-y": "2px",
-  "shadow-blur": "8px",
-  "shadow-spread": "0px",
-  "shadow-opacity": 0.4,
-  "shadow-color": "oklch(0 0 0)",
-  "shadow-2xs": "0 1px 2px rgba(0,0,0,0.5)",
-  "shadow-xs": "0 1px 3px rgba(0,0,0,0.6)",
-  "shadow-sm": "0 2px 4px rgba(0,0,0,0.6)",
-  "shadow": "0 4px 6px -1px rgba(0,0,0,0.7)",
-  "shadow-md": "0 10px 15px -3px rgba(0,0,0,0.7), 0 0 10px rgba(25, 249, 216, 0.15)",
-  "shadow-lg": "0 20px 25px -5px rgba(0,0,0,0.8)",
-  "shadow-xl": "0 25px 50px -12px rgba(0,0,0,0.9)",
-  "shadow-2xl": "0 35px 60px -12px rgba(0,0,0,1)",
-
-  "spacing": "0.25rem",
-  "tracking-normal": "0em",
 };
 
 export const neonDrive = {
   light,
   dark,
 } as const;
-
-

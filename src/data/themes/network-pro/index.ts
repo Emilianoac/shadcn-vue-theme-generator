@@ -42,29 +42,7 @@ export const light = {
   "sidebar-border": "oklch(0.90 0.01 235)",
   "sidebar-ring": "oklch(0.45 0.18 245)",
 
-  "font-sans": "'Inter', 'Hanken Grotesk', system-ui, sans-serif",
-  "font-serif": "Georgia, serif",
-  "font-mono": "'IBM Plex Mono', monospace",
-
   "radius": "0.5rem",
-
-  "shadow-x": "0",
-  "shadow-y": "1px",
-  "shadow-blur": "2px",
-  "shadow-spread": "0px",
-  "shadow-opacity": 0.05,
-  "shadow-color": "oklch(0 0 0)",
-  "shadow-2xs": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-  "shadow-xs": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
-  "shadow-sm": "0 2px 4px 0 rgba(0, 0, 0, 0.1)",
-  "shadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-  "shadow-md": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-  "shadow-lg": "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-  "shadow-xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-  "shadow-2xl": "0 30px 60px -12px rgba(0, 0, 0, 0.25)",
-
-  "spacing": "0.25rem",
-  "tracking-normal": "0em",
 };
 
 export const dark = {
@@ -111,34 +89,10 @@ export const dark = {
   "sidebar-border": "oklch(0.32 0.02 235)",
   "sidebar-ring": "oklch(0.55 0.15 245)",
 
-  "font-sans": "'Inter', 'Hanken Grotesk', sans-serif",
-  "font-serif": "Georgia, serif",
-  "font-mono": "'IBM Plex Mono', monospace",
-
   "radius": "0.5rem",
-
-  "shadow-x": "0",
-  "shadow-y": "1px",
-  "shadow-blur": "3px",
-  "shadow-spread": "0px",
-  "shadow-opacity": 0.3,
-  "shadow-color": "oklch(0.10 0 0)",
-  "shadow-2xs": "0 1px 2px 0 rgba(0, 0, 0, 0.2)",
-  "shadow-xs": "0 1px 3px 0 rgba(0, 0, 0, 0.3)",
-  "shadow-sm": "0 2px 4px 0 rgba(0, 0, 0, 0.3)",
-  "shadow": "0 4px 6px -1px rgba(0, 0, 0, 0.4)",
-  "shadow-md": "0 10px 15px -3px rgba(0, 0, 0, 0.5)",
-  "shadow-lg": "0 20px 25px -5px rgba(0, 0, 0, 0.5)",
-  "shadow-xl": "0 25px 50px -12px rgba(0, 0, 0, 0.6)",
-  "shadow-2xl": "0 30px 60px -12px rgba(0, 0, 0, 0.7)",
-
-  "spacing": "0.25rem",
-  "tracking-normal": "0em",
 };
 
 export const networkPro = {
   light,
   dark,
 } as const;
-
-
