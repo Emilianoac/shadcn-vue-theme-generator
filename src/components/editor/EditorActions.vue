@@ -20,7 +20,7 @@ const { theme, themeId, setTheme, isCustomTheme } = useTheme();
       />
     </div>
     <div class="flex h-7 items-center space-x-4">
-      <div class="flex items-center">
+      <div class="flex items-center gap-1">
         <ThemeCodeModal />
         <ResetThemeButton />
       </div>
