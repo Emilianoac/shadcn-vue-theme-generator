@@ -62,7 +62,7 @@ export const dark = {
   "destructive": "oklch(0.6698 0.2102 23.6837)",
   "destructive-foreground": "oklch(1 0 0)",
 
-  "border": "oklch(0.3942 0 0)",
+  "border": "oklch(0.2178 0 0)",
   "input": "oklch(0.2768 0 0)",
   "ring": "oklch(0.4999 0.1195 249.9564)",
 
