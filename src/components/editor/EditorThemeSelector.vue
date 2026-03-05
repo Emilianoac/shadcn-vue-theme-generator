@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 defineProps<{
   currentThemeName: string;
   currentThemeId: ThemeId;
+  isCustom: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -33,7 +34,10 @@ const emit = defineEmits<{
             <div class="w-4 h-4 border rounded-sm" style="background: var(--secondary)"></div>
             <div class="w-4 h-4 border rounded-sm" style="background: var(--background)"></div>
           </div>
-          <span class="text-sm">{{ currentThemeName }}</span>
+          <span class="text-sm"
+            >{{ currentThemeName
+            }}<span v-if="isCustom" class="text-muted-foreground"> (Custom)</span></span
+          >
         </div>
         <ChevronDown :size="22" />
       </Button>

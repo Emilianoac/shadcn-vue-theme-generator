@@ -5,4 +5,7 @@ export interface ThemeService {
   generateThemeCssCode(theme: Theme): string;
   loadTheme(): ThemeId;
   saveTheme(themeId: ThemeId): void;
+  loadCustomTheme(themeId: ThemeId): Theme | null;
+  saveCustomTheme(themeId: ThemeId, theme: Theme): void;
+  clearCustomTheme(): void;
 }

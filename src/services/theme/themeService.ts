@@ -4,6 +4,12 @@ import { fontService } from "@/services/font/fontService";
 import { generateThemeCssCode, objectToCssVariables } from "./themeCode.utils";
 
 const STORAGE_KEY = "current-theme";
+const CUSTOM_THEME_STORAGE_KEY = "current-theme-custom";
+
+type StoredCustomTheme = {
+  themeId: ThemeId;
+  theme: ReturnType<typeof structuredClone>;
+};
 
 export function createThemeService(): ThemeService {
   return {
@@ -47,6 +53,37 @@ export function createThemeService(): ThemeService {
 
     saveTheme(themeId) {
       localStorage.setItem(STORAGE_KEY, themeId);
+    },
+
+    loadCustomTheme(themeId) {
+      const saved = localStorage.getItem(CUSTOM_THEME_STORAGE_KEY);
+      if (!saved) {
+        return null;
+      }
+
+      try {
+        const parsed = JSON.parse(saved) as StoredCustomTheme;
+        if (parsed?.themeId === themeId && parsed?.theme) {
+          return parsed.theme as never;
+        }
+      } catch {
+        localStorage.removeItem(CUSTOM_THEME_STORAGE_KEY);
+      }
+
+      return null;
+    },
+
+    saveCustomTheme(themeId, theme) {
+      const payload = {
+        themeId,
+        theme,
+      };
+
+      localStorage.setItem(CUSTOM_THEME_STORAGE_KEY, JSON.stringify(payload));
+    },
+
+    clearCustomTheme() {
+      localStorage.removeItem(CUSTOM_THEME_STORAGE_KEY);
     },
   };
 }

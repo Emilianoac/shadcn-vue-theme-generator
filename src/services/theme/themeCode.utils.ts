@@ -1,4 +1,5 @@
 import type { Theme } from "@/data/themes";
+import { paletteToOklch } from "./themeColor.utils";
 
 const THEME_INLINE_MAPPINGS = [
   "background",
@@ -46,8 +47,8 @@ function getInlineThemeMappings(): string {
 }
 
 export function generateThemeCssCode(theme: Theme): string {
-  const cssVariablesLight = objectToCssVariables(theme.data.light);
-  const cssVariablesDark = objectToCssVariables(theme.data.dark);
+  const cssVariablesLight = objectToCssVariables(paletteToOklch(theme.data.light));
+  const cssVariablesDark = objectToCssVariables(paletteToOklch(theme.data.dark));
 
   return `@import "tailwindcss";
 
