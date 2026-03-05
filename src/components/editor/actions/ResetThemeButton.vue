@@ -11,13 +11,7 @@ const { isCustomTheme, resetTheme } = useTheme();
   <TooltipProvider :disabled="!isCustomTheme">
     <Tooltip>
       <TooltipTrigger class="w-full">
-        <Button
-          :disabled="!isCustomTheme"
-          variant="ghost"
-          size="sm"
-          class="h-5 px-2"
-          @click="resetTheme"
-        >
+        <Button :disabled="!isCustomTheme" variant="ghost" @click="resetTheme">
           <RotateCcw class="w-4 h-4" />
           Reset
         </Button>
