@@ -3,6 +3,7 @@ import type { ComponentExample } from "@/data/examples";
 import "vue-sonner/style.css";
 import { ExternalLink } from "lucide-vue-next";
 import { Toaster } from "@/components/ui/sonner";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 defineProps<{
   currentComponent: ComponentExample | null;
@@ -31,19 +32,23 @@ defineProps<{
     </div>
     <div
       id="examples-container"
-      class="p-4 md:p-8 border rounded-lg overflow-y-auto overflow-x-hidden w-full min-h-0 flex justify-center items-start flex-1 relative"
+      class="border rounded-lg w-full min-h-0 flex justify-center items-start flex-1"
     >
-      <div
-        :class="[
-          'w-full max-w-full min-h-0',
-          'previewLayout' in currentComponent &&
-            currentComponent.previewLayout === 'full-height' &&
-            'h-full',
-        ]"
-      >
-        <component :is="currentComponent.component" :key="currentComponent.id" />
-      </div>
-      <Toaster position="top-center" />
+      <ScrollArea class="h-full w-full">
+        <div class="p-4 md:p-8">
+          <div
+            :class="[
+              'w-full max-w-full min-h-0',
+              'previewLayout' in currentComponent &&
+                currentComponent.previewLayout === 'full-height' &&
+                'h-full',
+            ]"
+          >
+            <component :is="currentComponent.component" :key="currentComponent.id" />
+          </div>
+        </div>
+        <Toaster position="top-center" />
+      </ScrollArea>
     </div>
   </div>
 </template>
