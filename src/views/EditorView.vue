@@ -7,7 +7,7 @@ import EditorActions from "@/components/editor/EditorActions.vue";
 </script>
 
 <template>
-  <div class="flex flex-col h-screen [--header-height:44px]">
+  <div class="flex flex-col h-auto md:h-screen [--header-height:44px]">
     <EditorHeader class="h-(--header-height) shrink-0 border-b" />
     <SidebarProvider class="flex-1! min-h-0! overflow-hidden! [--sidebar-width:17rem]!">
       <SidebarInset class="flex flex-col min-h-0! overflow-hidden min-w-0!">
