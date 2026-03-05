@@ -19,6 +19,7 @@ const { isCustomTheme, resetTheme } = useTheme();
           @click="resetTheme"
         >
           <RotateCcw class="w-4 h-4" />
+          Reset
         </Button>
       </TooltipTrigger>
       <TooltipContent>Reset theme to default</TooltipContent>
