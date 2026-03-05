@@ -11,12 +11,12 @@ export const themes = {
   "neon-drive": {
     name: "Neon Drive",
     data: neonDrive,
-    externalFonts: ["Inter", "Hanken Grotesk", "IBM Plex Mono"],
+    externalFonts: [],
   },
   "network-pro": {
     name: "Network Pro",
     data: networkPro,
-    externalFonts: ["Inter", "Hanken Grotesk", "IBM Plex Mono"],
+    externalFonts: [],
   },
 } as const;
 
