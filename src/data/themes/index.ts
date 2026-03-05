@@ -1,6 +1,7 @@
 import { defaultTheme } from "./default";
 import { neonDrive } from "./neon-drive";
 import { networkPro } from "./network-pro";
+import { enterPrise98 } from "./enterprise-98";
 
 export const themes = {
   "default-theme": {
@@ -16,6 +17,11 @@ export const themes = {
   "network-pro": {
     name: "Network Pro",
     data: networkPro,
+    externalFonts: [],
+  },
+  "enterprise-98": {
+    name: "Enterprise 98",
+    data: enterPrise98,
     externalFonts: [],
   },
 } as const;
