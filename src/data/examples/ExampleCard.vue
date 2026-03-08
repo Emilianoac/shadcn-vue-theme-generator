@@ -1,9 +1,13 @@
 <script lang="ts" setup>
+import { computed } from "vue";
 import CoppyButton from "@/components/global/CoppyButton.vue";
+import { removeXRayAttributes } from "@/lib/utils/codeCleanup";
 
 const props = defineProps<{
   rawComponent: string;
 }>();
+
+const cleanCode = computed(() => removeXRayAttributes(props.rawComponent));
 </script>
 
 <template>
@@ -13,7 +17,7 @@ const props = defineProps<{
         <slot name="title" />
       </span>
 
-      <CoppyButton :show-text="false" :show-tooltip="true" :textToCopy="props.rawComponent" />
+      <CoppyButton :show-text="false" :show-tooltip="true" :textToCopy="cleanCode" />
     </div>
     <div class="border border-dashed p-6 flex-1">
       <slot name="example" />
