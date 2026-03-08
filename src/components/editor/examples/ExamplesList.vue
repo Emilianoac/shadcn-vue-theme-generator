@@ -19,7 +19,7 @@ const emit = defineEmits<{
 
 <template>
   <!-- Example List -->
-  <nav class="flex flex-col h-full bg-background overflow-y-auto">
+  <nav class="flex flex-col h-full bg-background overflow-y-auto p-2">
     <Input
       :modelValue="searchQuery"
       @update:modelValue="emit('update:searchQuery', String($event))"
