@@ -8,19 +8,31 @@ import { Plus } from "lucide-vue-next";
     <!-- Small  -->
     <div class="flex flex-row items-center">
       <Avatar class="w-6 h-6 border-2 border-background">
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback class="border text-xs text-muted-foreground">CN</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/shadcn.png"
+          alt="@shadcn"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-xs" data-component-x-ray="AvatarFallback">CN</AvatarFallback>
       </Avatar>
       <Avatar class="w-6 h-6 border-2 border-background -ml-2">
-        <AvatarImage src="https://github.com/zernonia.png" alt="@zernonia" />
-        <AvatarFallback class="border text-xs text-muted-foreground">ZE</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/zernonia.png"
+          alt="@zernonia"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-xs" data-component-x-ray="AvatarFallback">ZE</AvatarFallback>
       </Avatar>
       <Avatar class="w-6 h-6 border-2 border-background -ml-2">
-        <AvatarImage src="https://github.com/yyx990803.png" alt="@yyx990803" />
-        <AvatarFallback class="border text-xs text-muted-foreground">EY</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/yyx990803.png"
+          alt="@yyx990803"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-xs" data-component-x-ray="AvatarFallback">EY</AvatarFallback>
       </Avatar>
       <Avatar class="w-6 h-6 border-2 border-background -ml-2">
-        <AvatarFallback class="border text-muted-foreground">
+        <AvatarFallback data-component-x-ray="AvatarFallback">
           <Plus class="h-3 w-3" />
         </AvatarFallback>
       </Avatar>
@@ -29,19 +41,31 @@ import { Plus } from "lucide-vue-next";
     <!-- Medium  -->
     <div class="flex flex-row items-center">
       <Avatar class="w-8 h-8 border-2 border-background">
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback class="border text-sm text-muted-foreground">CN</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/shadcn.png"
+          alt="@shadcn"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-sm" data-component-x-ray="AvatarFallback">CN</AvatarFallback>
       </Avatar>
       <Avatar class="w-8 h-8 border-2 border-background -ml-3">
-        <AvatarImage src="https://github.com/zernonia.png" alt="@zernonia" />
-        <AvatarFallback class="border text-sm text-muted-foreground">ZE</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/zernonia.png"
+          alt="@zernonia"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-sm" data-component-x-ray="AvatarFallback">ZE</AvatarFallback>
       </Avatar>
       <Avatar class="w-8 h-8 border-2 border-background -ml-3">
-        <AvatarImage src="https://github.com/yyx990803.png" alt="@yyx990803" />
-        <AvatarFallback class="border text-sm text-muted-foreground">EY</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/yyx990803.png"
+          alt="@yyx990803"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback class="text-sm" data-component-x-ray="AvatarFallback">EY</AvatarFallback>
       </Avatar>
       <Avatar class="w-8 h-8 border-2 border-background -ml-3">
-        <AvatarFallback class="border text-muted-foreground">
+        <AvatarFallback data-component-x-ray="AvatarFallback">
           <Plus class="h-3.5 w-3.5" />
         </AvatarFallback>
       </Avatar>
@@ -50,19 +74,31 @@ import { Plus } from "lucide-vue-next";
     <!-- Large  -->
     <div class="flex flex-row items-center">
       <Avatar class="w-10 h-10 border-2 border-background">
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback class="border text-muted-foreground">CN</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/shadcn.png"
+          alt="@shadcn"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback data-component-x-ray="AvatarFallback">CN</AvatarFallback>
       </Avatar>
       <Avatar class="w-10 h-10 border-2 border-background -ml-3">
-        <AvatarImage src="https://github.com/zernonia.png" alt="@zernonia" />
-        <AvatarFallback class="border text-muted-foreground">ZE</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/zernonia.png"
+          alt="@zernonia"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback data-component-x-ray="AvatarFallback">ZE</AvatarFallback>
       </Avatar>
       <Avatar class="w-10 h-10 border-2 border-background -ml-3">
-        <AvatarImage src="https://github.com/yyx990803.png" alt="@yyx990803" />
-        <AvatarFallback class="border text-muted-foreground">EY</AvatarFallback>
+        <AvatarImage
+          src="https://github.com/yyx990803.png"
+          alt="@yyx990803"
+          data-component-x-ray="AvatarImage"
+        />
+        <AvatarFallback data-component-x-ray="AvatarFallback">EY</AvatarFallback>
       </Avatar>
       <Avatar class="w-10 h-10 border-2 border-background -ml-3">
-        <AvatarFallback class="border text-muted-foreground">
+        <AvatarFallback data-component-x-ray="AvatarFallback">
           <Plus class="h-4 w-4" />
         </AvatarFallback>
       </Avatar>
