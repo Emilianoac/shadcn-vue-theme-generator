@@ -5,6 +5,7 @@ export interface MappedColorClass {
   label: string;
   conditionMet?: boolean;
   arbitraryVariant?: string;
+  variants?: string[];
 }
 
 export type ElementType = "component" | "trigger" | "internal";

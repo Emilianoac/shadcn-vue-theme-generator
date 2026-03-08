@@ -6,13 +6,17 @@ export function mapColorClassToTheme(
   className: string,
   element?: HTMLElement,
 ): MappedColorClass | null {
+  const segments = splitClassSegments(className);
+  if (segments.length === 0) return null;
+
+  const variants = segments.slice(0, -1).filter(Boolean);
   const arbitraryVariant = extractArbitraryVariant(className);
 
   const conditionMet =
     !element || !arbitraryVariant || validateArbitraryVariant(arbitraryVariant, element);
 
   const cleanedClass = className.replace(/\[[^\]]+\]/g, "");
-  const cleanClass = cleanedClass.split(":").pop() || "";
+  const cleanClass = splitClassSegments(cleanedClass).pop() || "";
   const baseClass = cleanClass.split("/")[0];
 
   if (!baseClass) return null;
@@ -30,7 +34,42 @@ export function mapColorClassToTheme(
     label,
     conditionMet,
     arbitraryVariant: arbitraryVariant || undefined,
+    variants,
   };
+}
+
+function splitClassSegments(value: string): string[] {
+  const segments: string[] = [];
+  let current = "";
+  let bracketDepth = 0;
+
+  for (const char of value) {
+    if (char === "[") {
+      bracketDepth += 1;
+      current += char;
+      continue;
+    }
+
+    if (char === "]") {
+      bracketDepth = Math.max(0, bracketDepth - 1);
+      current += char;
+      continue;
+    }
+
+    if (char === ":" && bracketDepth === 0) {
+      segments.push(current);
+      current = "";
+      continue;
+    }
+
+    current += char;
+  }
+
+  if (current) {
+    segments.push(current);
+  }
+
+  return segments;
 }
 
 function classifyColorClass(baseClass: string): { type: ColorType; themeKey: string } {

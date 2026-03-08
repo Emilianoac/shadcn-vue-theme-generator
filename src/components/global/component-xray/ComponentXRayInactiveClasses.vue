@@ -24,6 +24,12 @@ defineProps<{
           <code class="text-xs text-muted-foreground/70 font-mono select-text break-all">
             {{ mapped.className }}
           </code>
+          <p
+            v-if="mapped.variants && mapped.variants.length > 0"
+            class="text-xs text-muted-foreground/60 mt-1"
+          >
+            Context: <strong>{{ mapped.variants.join(" + ") }}</strong>
+          </p>
           <p v-if="mapped.arbitraryVariant" class="text-xs text-muted-foreground/60 mt-1">
             Condition: <strong>[{{ mapped.arbitraryVariant }}]</strong> is not active
           </p>

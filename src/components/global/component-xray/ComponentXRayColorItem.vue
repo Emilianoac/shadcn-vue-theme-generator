@@ -24,6 +24,13 @@ const emit = defineEmits<{
           {{ mapped.className }}
         </code>
       </p>
+
+      <p
+        v-if="mapped.variants && mapped.variants.length > 0"
+        class="text-xs text-muted-foreground/80 mt-1"
+      >
+        Context: <strong>{{ mapped.variants.join(" + ") }}</strong>
+      </p>
     </div>
     <div class="shrink-0 flex items-center gap-2">
       <Button
