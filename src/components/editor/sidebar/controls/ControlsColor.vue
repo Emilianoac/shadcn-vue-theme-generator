@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
 import { useTheme } from "@/composables/useTheme";
 import ColorPickerField from "./shared/ColorPickerField.vue";
@@ -126,17 +126,72 @@ const COLOR_GROUPS = [
     isOpenByDefault: false,
   },
 ] as const;
+
+const openItems = ref<string[]>(
+  COLOR_GROUPS.filter((group) => group.isOpenByDefault).map((group) => group.id),
+);
+
+const themeGroupByKey = Object.fromEntries(
+  COLOR_GROUPS.flatMap((group) => group.fields.map((field) => [field.key, group.id])),
+) as Record<string, string>;
+
+function focusThemeColorInput(themeKey: string) {
+  const groupId = themeGroupByKey[themeKey];
+  if (!groupId) return;
+
+  const inputId = `theme-color-${themeKey}`;
+  const wasClosed = !openItems.value.includes(groupId);
+  if (wasClosed) {
+    openItems.value = [...openItems.value, groupId];
+  }
+
+  const focusNow = () => {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    const fieldElement = input?.closest("[data-theme-color-field]") as HTMLElement | null;
+    if (!input || !fieldElement) return;
+
+    fieldElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    input.focus({ preventScroll: true });
+    input.select();
+  };
+
+  const delays = wasClosed ? [0, 80, 180, 320] : [0, 60];
+  nextTick(() => {
+    delays.forEach((delay) => {
+      window.setTimeout(() => {
+        focusNow();
+      }, delay);
+    });
+  });
+}
+
+function handleXRayNavigate(event: Event) {
+  const customEvent = event as CustomEvent<{ themeKey?: string }>;
+  const themeKey = customEvent.detail?.themeKey;
+  if (!themeKey) return;
+
+  focusThemeColorInput(themeKey);
+}
+
+onMounted(() => {
+  window.addEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
+});
 </script>
 
 <template>
   <div>
-    <Accordion
-      v-for="(group, id) in COLOR_GROUPS"
-      :key="id"
-      type="multiple"
-      class="border-b overflow-hidden"
-    >
-      <AccordionItem :value="group.id" :unmount-on-hide="false">
+    <Accordion v-model="openItems" type="multiple">
+      <AccordionItem
+        v-for="group in COLOR_GROUPS"
+        :key="group.id"
+        :value="group.id"
+        :unmount-on-hide="false"
+        class="border-b overflow-hidden"
+      >
         <AccordionTrigger
           class="p-4 py-3 text-xs font-semibold hover:bg-accent/30 cursor-pointer hover:no-underline rounded-none"
         >
@@ -148,6 +203,7 @@ const COLOR_GROUPS = [
               v-for="field in group.fields"
               :key="field.key"
               :label="field.label"
+              :theme-key="field.key"
               v-model="theme.data[mode][field.key]"
             />
           </div>

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { Input } from "@/components/ui/input";
 import { colorToHexForInput } from "@/services/theme/themeColor.utils";
 
-defineProps<{
+const props = defineProps<{
   label: string;
+  themeKey?: string;
 }>();
+
+const inputId = computed(() => (props.themeKey ? `theme-color-${props.themeKey}` : undefined));
 
 const model = defineModel<string>();
 const swatchHex = ref("#000000");
@@ -29,8 +32,8 @@ function updateFromSwatch(event: Event) {
 </script>
 
 <template>
-  <div class="space-y-2">
-    <label class="block text-xs">{{ label }}</label>
+  <div class="space-y-2" :data-theme-color-field="themeKey">
+    <label :for="inputId" class="block text-xs">{{ label }}</label>
     <div class="flex items-center">
       <div
         class="relative h-7 w-7 shrink-0 overflow-hidden border border-e-0 hover:opacity-80 rounded-tl-[2px] rounded-bl-[2px]"
@@ -44,6 +47,7 @@ function updateFromSwatch(event: Event) {
         />
       </div>
       <Input
+        :id="inputId"
         v-model="model"
         class="rounded-[2px] shadow-none h-7 text-[0.8em]! rounded-tl-none! rounded-bl-none! border-border"
       />

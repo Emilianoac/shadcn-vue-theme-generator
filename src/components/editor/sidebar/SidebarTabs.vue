@@ -1,6 +1,21 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ControlsColor from "@/components/editor/sidebar/controls/ControlsColor.vue";
+
+const activeTab = ref("colors");
+
+function handleXRayNavigate() {
+  activeTab.value = "colors";
+}
+
+onMounted(() => {
+  window.addEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
+});
 
 const tabs = [
   {
@@ -22,7 +37,7 @@ const tabs = [
 </script>
 
 <template>
-  <Tabs default-value="colors" class="flex min-h-0 w-full flex-1 flex-col" :unmount-on-hide="false">
+  <Tabs v-model="activeTab" class="flex min-h-0 w-full flex-1 flex-col" :unmount-on-hide="false">
     <TabsList class="bg-transparent p-4 justify-start border-b rounded-none h-14">
       <TabsTrigger
         v-for="tab in tabs"
