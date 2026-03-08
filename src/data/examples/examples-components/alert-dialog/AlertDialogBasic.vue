@@ -16,9 +16,9 @@ import { Button } from "@/components/ui/button";
 <template>
   <AlertDialog>
     <AlertDialogTrigger as-child class="mx-auto block">
-      <Button variant="outline">Default</Button>
+      <Button variant="outline" data-component-x-ray-trigger="Button"> Default </Button>
     </AlertDialogTrigger>
-    <AlertDialogContent>
+    <AlertDialogContent data-component-x-ray="AlertDialogContent">
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         <AlertDialogDescription>

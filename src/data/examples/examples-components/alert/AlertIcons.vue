@@ -5,44 +5,48 @@ import { AlertCircleIcon } from "lucide-vue-next";
 
 <template>
   <div class="space-y-5">
-    <Alert variant="default">
+    <Alert variant="default" data-component-x-ray="Alert">
       <AlertCircleIcon />
-      <AlertTitle>
+      <AlertTitle data-component-x-ray="AlertTitle">
         Let's try one with icon, title and a
         <a href="#" class="underline underline-offset-2">link</a>.
       </AlertTitle>
     </Alert>
 
-    <Alert>
+    <Alert variant="default" data-component-x-ray="Alert">
       <AlertCircleIcon />
-      <AlertTitle>Success! Your changes have been saved</AlertTitle>
-      <AlertDescription> This is an alert with icon, title and description. </AlertDescription>
+      <AlertTitle data-component-x-ray="AlertTitle">
+        Success! Your changes have been saved
+      </AlertTitle>
+      <AlertDescription data-component-x-ray="AlertDescription">
+        This is an alert with icon, title and description.
+      </AlertDescription>
     </Alert>
 
-    <Alert>
+    <Alert variant="default" data-component-x-ray="Alert">
       <AlertCircleIcon />
-      <AlertTitle>
+      <AlertTitle data-component-x-ray="AlertTitle">
         This is a very long alert title that demonstrates how the component handles extended text
         content and potentially wraps across multiple lines
       </AlertTitle>
     </Alert>
 
-    <Alert>
+    <Alert variant="default" data-component-x-ray="Alert">
       <AlertCircleIcon />
-      <AlertDescription>
+      <AlertDescription data-component-x-ray="AlertDescription">
         This is a very long alert description that demonstrates how the component handles extended
         text content and potentially wraps across multiple lines
       </AlertDescription>
     </Alert>
 
-    <Alert>
+    <Alert variant="default" data-component-x-ray="Alert">
       <AlertCircleIcon />
-      <AlertTitle>
+      <AlertTitle data-component-x-ray="AlertTitle">
         This is an extremely long alert title that spans multiple lines to demonstrate how the
         component handles very lengthy headings while maintaining readability and proper text
         wrapping behavior
       </AlertTitle>
-      <AlertDescription>
+      <AlertDescription data-component-x-ray="AlertDescription">
         This is an equally long description that contains detailed information about the alert. It
         shows how the component can accommodate extensive content while preserving proper spacing,
         alignment, and readability across different screen sizes and viewport widths. This helps
