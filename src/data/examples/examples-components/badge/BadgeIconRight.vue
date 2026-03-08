@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-vue-next";
 
 <template>
   <div class="flex w-full flex-wrap gap-2">
-    <Badge variant="default">Default <ArrowRight /></Badge>
-    <Badge variant="secondary">Secondary <ArrowRight /></Badge>
-    <Badge variant="destructive">Destructive <ArrowRight /> </Badge>
-    <Badge variant="outline">Outline <ArrowRight /></Badge>
+    <Badge variant="default" data-component-x-ray="Badge">Default <ArrowRight /></Badge>
+    <Badge variant="secondary" data-component-x-ray="Badge">Secondary <ArrowRight /></Badge>
+    <Badge variant="destructive" data-component-x-ray="Badge">Destructive <ArrowRight /></Badge>
+    <Badge variant="outline" data-component-x-ray="Badge">Outline <ArrowRight /></Badge>
   </div>
 </template>

@@ -4,9 +4,9 @@ import { Badge } from "@/components/ui/badge";
 
 <template>
   <div class="flex w-full flex-wrap gap-2">
-    <Badge variant="default">Default</Badge>
-    <Badge variant="secondary"> Secondary </Badge>
-    <Badge variant="destructive"> Destructive </Badge>
-    <Badge variant="outline"> Outline </Badge>
+    <Badge variant="default" data-component-x-ray="Badge"> Default </Badge>
+    <Badge variant="secondary" data-component-x-ray="Badge"> Secondary </Badge>
+    <Badge variant="destructive" data-component-x-ray="Badge"> Destructive </Badge>
+    <Badge variant="outline" data-component-x-ray="Badge"> Outline </Badge>
   </div>
 </template>

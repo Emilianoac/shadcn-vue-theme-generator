@@ -5,9 +5,17 @@ import { Loader2 } from "lucide-vue-next";
 
 <template>
   <div class="flex w-full flex-wrap gap-2">
-    <Badge variant="default">Default <Loader2 class="animate-spin" /></Badge>
-    <Badge variant="secondary">Secondary <Loader2 class="animate-spin" /></Badge>
-    <Badge variant="destructive">Destructive <Loader2 class="animate-spin" /></Badge>
-    <Badge variant="outline">Outline <Loader2 class="animate-spin" /></Badge>
+    <Badge variant="default" data-component-x-ray="Badge">
+      Default <Loader2 class="animate-spin" />
+    </Badge>
+    <Badge variant="secondary" data-component-x-ray="Badge">
+      Secondary <Loader2 class="animate-spin" />
+    </Badge>
+    <Badge variant="destructive" data-component-x-ray="Badge">
+      Destructive <Loader2 class="animate-spin" />
+    </Badge>
+    <Badge variant="outline" data-component-x-ray="Badge">
+      Outline <Loader2 class="animate-spin" />
+    </Badge>
   </div>
 </template>
