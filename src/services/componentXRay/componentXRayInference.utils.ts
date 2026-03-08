@@ -40,6 +40,41 @@ const textElements = new Set([
   "button",
 ]);
 
+function findInheritedTextColor(element: HTMLElement): {
+  className: string;
+  themeKey: string;
+  label: string;
+} | null {
+  let current = element.parentElement;
+
+  while (current) {
+    const classList = Array.from(current.classList);
+
+    for (const cls of classList) {
+      // Extract the base class without variants
+      const segments = cls.split(":");
+      const baseClass = segments[segments.length - 1];
+
+      if (baseClass.startsWith("text-")) {
+        const themeKey = baseClass.replace("text-", "");
+        const label = getThemeVariableLabel(themeKey);
+
+        if (label) {
+          return {
+            className: cls,
+            themeKey,
+            label,
+          };
+        }
+      }
+    }
+
+    current = current.parentElement;
+  }
+
+  return null;
+}
+
 export function inferBaseTokens(
   element: HTMLElement,
   explicitMapped: MappedColorClass[],
@@ -74,19 +109,33 @@ export function inferBaseTokens(
   const shouldInferForeground = isTextElement || hasTextDescendants;
 
   if (shouldInferForeground) {
-    const hasExplicitTextColor = explicitMapped.some(
-      (mapped) => mapped.type === "text" || mapped.themeKey === "foreground",
+    // Only consider it explicit if there's a text color without variants (base state)
+    const hasBaseTextColor = explicitMapped.some(
+      (mapped) => mapped.type === "text" && (!mapped.variants || mapped.variants.length === 0),
     );
 
-    if (!hasExplicitTextColor) {
-      const foregroundLabel = getThemeVariableLabel("foreground") || "Foreground";
-      inferred.push({
-        className: "(inferred text color)",
-        type: "text",
-        themeKey: "foreground",
-        label: foregroundLabel,
-        conditionMet: true,
-      });
+    if (!hasBaseTextColor) {
+      // Check for inherited text color from ancestors
+      const inheritedTextColor = findInheritedTextColor(element);
+
+      if (inheritedTextColor) {
+        inferred.push({
+          className: `${inheritedTextColor.className} (inherited)`,
+          type: "text",
+          themeKey: inheritedTextColor.themeKey,
+          label: inheritedTextColor.label,
+          conditionMet: true,
+        });
+      } else {
+        const foregroundLabel = getThemeVariableLabel("foreground") || "Foreground";
+        inferred.push({
+          className: "(inferred text color)",
+          type: "text",
+          themeKey: "foreground",
+          label: foregroundLabel,
+          conditionMet: true,
+        });
+      }
     }
   }
 

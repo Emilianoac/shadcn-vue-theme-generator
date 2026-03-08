@@ -86,18 +86,31 @@ export function useComponentXRay() {
 
   function inspectElement(selectedElement: HTMLElement): void {
     const colorClasses = componentXRayService.extractColorClasses(selectedElement);
+    console.log("🔍 Element:", selectedElement);
+    console.log("🎨 Color classes extracted:", colorClasses);
+    console.log("📋 Element classList:", Array.from(selectedElement.classList));
+
     const explicitMapped = colorClasses
       .map((cls) => componentXRayService.mapColorClassToTheme(cls, selectedElement))
       .filter((mapped): mapped is MappedColorClass => mapped !== null);
 
+    console.log("✅ Explicit mapped:", explicitMapped);
+
     const inferredTokens = componentXRayService.inferBaseTokens(selectedElement, explicitMapped);
+    console.log("💡 Inferred tokens:", inferredTokens);
 
     elementLabel.value = componentXRayService.extractElementLabel(selectedElement);
     elementTagName.value = selectedElement.tagName.toLowerCase();
     isInspectingComponent.value =
       selectedElement.hasAttribute("data-component-x-ray") ||
       selectedElement.hasAttribute("data-component-x-ray-trigger");
-    dialogMappedClasses.value = [...explicitMapped, ...inferredTokens];
+
+    // Sort colors: base state (no variants) first, then variants
+    const allMapped = [...explicitMapped, ...inferredTokens];
+    const baseColors = allMapped.filter((m) => !m.variants || m.variants.length === 0);
+    const variantColors = allMapped.filter((m) => m.variants && m.variants.length > 0);
+
+    dialogMappedClasses.value = [...baseColors, ...variantColors];
 
     isDialogOpen.value = true;
   }
@@ -172,6 +185,24 @@ export function useComponentXRay() {
 
     e.preventDefault();
     e.stopPropagation();
+
+    // If the target element itself doesn't have the marker, inspect it directly
+    if (
+      !target.hasAttribute("data-component-x-ray") &&
+      !target.hasAttribute("data-component-x-ray-trigger")
+    ) {
+      const markedParent = target.closest(`[data-component-x-ray]`);
+
+      if (markedParent instanceof HTMLElement) {
+        if (e.ctrlKey) {
+          inspectElement(markedParent);
+          return;
+        }
+
+        inspectElement(target);
+      }
+      return;
+    }
 
     const markedChain = componentXRayService.getMarkedChain(target);
 

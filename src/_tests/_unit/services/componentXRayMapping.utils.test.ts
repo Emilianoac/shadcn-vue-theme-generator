@@ -58,4 +58,17 @@ describe("componentXRayMapping.utils", () => {
 
     expect(mapped.map((x) => x.themeKey)).toEqual(["primary", "foreground", "input"]);
   });
+
+  it("correctly maps text-muted-foreground", () => {
+    const mapped = mapColorClassToTheme("text-muted-foreground");
+
+    expect(mapped).toEqual(
+      expect.objectContaining({
+        className: "text-muted-foreground",
+        type: "text",
+        themeKey: "muted-foreground",
+        label: "Muted Foreground",
+      }),
+    );
+  });
 });
