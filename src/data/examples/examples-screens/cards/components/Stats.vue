@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/components/ui/chart";
 
-import { VisLine, VisScatter, VisXYContainer } from "@unovis/vue";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { VisArea, VisLine, VisScatter, VisXYContainer } from "@unovis/vue";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ChartContainer } from "@/components/ui/chart";
 
 defineOptions({
@@ -21,8 +29,9 @@ const data = [
   { revenue: 26475, subscription: 189 },
 ];
 
-const x = (d: Data, i: number) => i;
+const x = (_d: Data, i: number) => i;
 const getRevenue = (d: Data) => d.revenue;
+const getSubscription = (d: Data) => d.subscription;
 
 const chartConfig = {
   revenue: {
@@ -37,35 +46,67 @@ const chartConfig = {
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardDescription>Total Revenue</CardDescription>
-      <CardTitle class="text-3xl"> $15,231.89 </CardTitle>
-      <CardDescription>+20.1% from last month</CardDescription>
-    </CardHeader>
-    <CardContent class="pb-0">
-      <ChartContainer :config="chartConfig" class="h-20 w-full">
-        <VisXYContainer
-          :data="data"
-          :duration="0"
-          :margin="{
-            top: 5,
-            right: 10,
-            left: 10,
-            bottom: 0,
-          }"
-        >
-          <VisLine :x="x" :y="getRevenue" color="var(--color-revenue)" />
-          <VisScatter
-            :x="x"
-            :y="getRevenue"
-            :size="6"
-            stroke-color="var(--color-revenue)"
-            :stroke-width="2"
-            color="white"
-          />
-        </VisXYContainer>
-      </ChartContainer>
-    </CardContent>
-  </Card>
+  <div class="grid gap-4 grid-cols-1 xl:grid-cols-2">
+    <Card>
+      <CardHeader>
+        <CardDescription>Total Revenue</CardDescription>
+        <CardTitle class="text-3xl">$15,231.89</CardTitle>
+        <CardDescription>+20.1% from last month</CardDescription>
+      </CardHeader>
+      <CardContent class="pb-0">
+        <ChartContainer :config="chartConfig" class="h-20 w-full">
+          <VisXYContainer
+            :data="data"
+            :duration="0"
+            :margin="{
+              top: 5,
+              right: 10,
+              left: 10,
+              bottom: 0,
+            }"
+          >
+            <VisLine :x="x" :y="getRevenue" color="var(--color-revenue)" />
+            <VisScatter
+              :x="x"
+              :y="getRevenue"
+              :size="6"
+              stroke-color="var(--color-revenue)"
+              :stroke-width="2"
+              color="white"
+            />
+          </VisXYContainer>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+
+    <Card class="pb-0 xl:flex">
+      <CardHeader>
+        <CardDescription>Subscriptions</CardDescription>
+        <CardTitle class="text-3xl">+2,350</CardTitle>
+        <CardDescription>+180.1% from last month</CardDescription>
+        <CardAction>
+          <Button variant="ghost" size="sm">View More</Button>
+        </CardAction>
+      </CardHeader>
+      <CardContent class="mt-auto max-h-31 flex-1 p-0 overflow-hidden">
+        <ChartContainer :config="chartConfig" class="size-full">
+          <VisXYContainer
+            :margin="{
+              left: 0,
+              right: 0,
+            }"
+            :data="data"
+          >
+            <VisArea
+              :x="x"
+              :y="getSubscription"
+              color="var(--color-subscription)"
+              :opacity="0.05"
+            />
+            <VisLine :x="x" :y="getSubscription" color="var(--color-subscription)" />
+          </VisXYContainer>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  </div>
 </template>
