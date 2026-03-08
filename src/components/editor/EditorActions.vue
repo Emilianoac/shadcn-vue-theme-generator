@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import EditorThemeSelector from "@/components/editor/EditorThemeSelector.vue";
 import ThemeCodeModal from "@/components/editor/actions/theme-code-modal/ThemeCodeModal.vue";
 import ResetThemeButton from "@/components/editor/actions/ResetThemeButton.vue";
+import ComponentXRayButton from "@/components/editor/actions/ComponentXRayButton.vue";
 import { useTheme } from "@/composables/useTheme";
 
 const { theme, themeId, setTheme, isCustomTheme } = useTheme();
@@ -21,6 +22,7 @@ const { theme, themeId, setTheme, isCustomTheme } = useTheme();
     </div>
     <div class="flex h-7 items-center space-x-4">
       <div class="flex items-center gap-1">
+        <ComponentXRayButton />
         <ThemeCodeModal />
         <ResetThemeButton />
       </div>
