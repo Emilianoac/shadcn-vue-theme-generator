@@ -18,36 +18,39 @@ import {
 
 <template>
   <Breadcrumb>
-    <BreadcrumbList>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+    <BreadcrumbList data-component-x-ray="BreadcrumbList">
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Home</BreadcrumbLink>
         <BreadcrumbSeparator />
       </BreadcrumbItem>
-      <BreadcrumbItem>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
         <DropdownMenu>
-          <DropdownMenuTrigger aria-label="Toggle menu">
-            <BreadcrumbEllipsis class="size-4 cursor-pointer hover:text-foreground" />
+          <DropdownMenuTrigger aria-label="Toggle menu" as-child>
+            <BreadcrumbEllipsis
+              class="size-4 cursor-pointer hover:text-foreground"
+              data-component-x-ray-trigger="BreadcrumbEllipsis"
+            />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
-            <DropdownMenuItem as-child>
+          <DropdownMenuContent align="start" data-component-x-ray="DropdownMenuContent">
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">Documentation</a>
             </DropdownMenuItem>
-            <DropdownMenuItem as-child>
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">Themes</a>
             </DropdownMenuItem>
-            <DropdownMenuItem as-child>
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">Built by</a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator" />
+      </BreadcrumbItem>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Components</BreadcrumbLink>
         <BreadcrumbSeparator />
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Components</BreadcrumbLink>
-        <BreadcrumbSeparator />
-      </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbPage data-component-x-ray="BreadcrumbPage">Breadcrumb</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>

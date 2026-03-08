@@ -18,33 +18,36 @@ import { ChevronDown } from "lucide-vue-next";
 
 <template>
   <Breadcrumb>
-    <BreadcrumbList>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Home</BreadcrumbLink>
+    <BreadcrumbList data-component-x-ray="BreadcrumbList">
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Home</BreadcrumbLink>
         <BreadcrumbSeparator />
       </BreadcrumbItem>
-      <BreadcrumbItem>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
         <DropdownMenu>
-          <DropdownMenuTrigger class="flex items-center gap-1 cursor-pointer hover:text-foreground">
+          <DropdownMenuTrigger
+            class="flex items-center gap-1 cursor-pointer hover:text-foreground"
+            data-component-x-ray-trigger="DropdownMenuTrigger"
+          >
             Components
             <ChevronDown class="size-3" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
-            <DropdownMenuItem as-child>
+          <DropdownMenuContent align="start" data-component-x-ray="DropdownMenuContent">
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">Documentation</a>
             </DropdownMenuItem>
-            <DropdownMenuItem as-child>
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">Themes</a>
             </DropdownMenuItem>
-            <DropdownMenuItem as-child>
+            <DropdownMenuItem as-child data-component-x-ray="DropdownMenuItem">
               <a href="#">GitHub</a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <BreadcrumbSeparator />
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator" />
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbPage data-component-x-ray="BreadcrumbPage">Breadcrumb</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>

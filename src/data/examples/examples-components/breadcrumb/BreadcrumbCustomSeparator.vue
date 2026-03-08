@@ -12,21 +12,21 @@ import { Slash } from "lucide-vue-next";
 
 <template>
   <Breadcrumb>
-    <BreadcrumbList>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        <BreadcrumbSeparator>
+    <BreadcrumbList data-component-x-ray="BreadcrumbList">
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Home</BreadcrumbLink>
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator">
           <Slash />
         </BreadcrumbSeparator>
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Library</BreadcrumbLink>
-        <BreadcrumbSeparator>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Library</BreadcrumbLink>
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator">
           <Slash />
         </BreadcrumbSeparator>
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbPage>Data</BreadcrumbPage>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbPage data-component-x-ray="BreadcrumbPage">Data</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>

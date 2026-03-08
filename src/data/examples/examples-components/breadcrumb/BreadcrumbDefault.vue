@@ -10,18 +10,18 @@ import {
 </script>
 
 <template>
-  <Breadcrumb>
-    <BreadcrumbList>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        <BreadcrumbSeparator />
+  <Breadcrumb data-component-x-ray="Breadcrumb" class="p-2">
+    <BreadcrumbList data-component-x-ray="BreadcrumbList">
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Home</BreadcrumbLink>
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator" />
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbLink href="#">Library</BreadcrumbLink>
-        <BreadcrumbSeparator />
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbLink href="#" data-component-x-ray="BreadcrumbLink">Library</BreadcrumbLink>
+        <BreadcrumbSeparator data-component-x-ray="BreadcrumbSeparator" />
       </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbPage>Data</BreadcrumbPage>
+      <BreadcrumbItem data-component-x-ray="BreadcrumbItem">
+        <BreadcrumbPage data-component-x-ray="BreadcrumbPage">Data</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>
