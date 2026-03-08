@@ -76,7 +76,7 @@ const tooltipContent = computed(() => {
   if (!props.hoveredElement) return "";
 
   if (props.hoveredElement.isTrigger) {
-    return `${hoveredLabel.value} - Ctrl+Click to inspect`;
+    return `${hoveredLabel.value} (trigger) - Ctrl+Click to inspect`;
   }
 
   if (props.hoveredElement.elementType === "internal") {

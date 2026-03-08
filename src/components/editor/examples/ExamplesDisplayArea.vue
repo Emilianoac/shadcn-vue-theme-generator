@@ -32,7 +32,7 @@ defineProps<{
     </div>
     <div
       id="examples-container"
-      class="border rounded-lg w-full min-h-0 flex justify-center items-start flex-1"
+      class="relative border rounded-lg w-full min-h-0 flex justify-center items-start flex-1"
     >
       <ScrollArea class="h-full w-full">
         <div class="p-4 md:p-8">
