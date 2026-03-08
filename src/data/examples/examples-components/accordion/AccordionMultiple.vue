@@ -40,7 +40,7 @@ const accordionItems = [
       v-for="item in accordionItems"
       :key="item.value"
       :value="item.value"
-      data-component-x-ray="accordion-item"
+      data-component-x-ray="AccordionItem"
       class="p-2"
     >
       <AccordionTrigger data-component-x-ray-trigger="AccordionTrigger">

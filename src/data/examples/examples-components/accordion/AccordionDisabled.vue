@@ -50,7 +50,7 @@ const accordionItems = [
       :key="item.value"
       :value="item.value"
       :disabled="item.disabled"
-      data-component-x-ray="accordion-item"
+      data-component-x-ray="AccordionItem"
       class="p-2"
     >
       <AccordionTrigger data-component-x-ray-trigger="AccordionTrigger">
