@@ -3,6 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
 import { useTheme } from "@/composables/useTheme";
 import ColorPickerField from "./shared/ColorPickerField.vue";
+import ContrastChecker from "./shared/ContrastChecker.vue";
 
 import {
   Accordion,
@@ -23,6 +24,7 @@ const COLOR_GROUPS = [
       { label: "Primary", key: "primary" },
       { label: "Primary Foreground", key: "primary-foreground" },
     ],
+    contrastPair: { background: "primary", foreground: "primary-foreground" },
     isOpenByDefault: true,
   },
   {
@@ -32,6 +34,7 @@ const COLOR_GROUPS = [
       { label: "Secondary", key: "secondary" },
       { label: "Secondary Foreground", key: "secondary-foreground" },
     ],
+    contrastPair: { background: "secondary", foreground: "secondary-foreground" },
     isOpenByDefault: true,
   },
   {
@@ -41,6 +44,7 @@ const COLOR_GROUPS = [
       { label: "Accent", key: "accent" },
       { label: "Accent Foreground", key: "accent-foreground" },
     ],
+    contrastPair: { background: "accent", foreground: "accent-foreground" },
     isOpenByDefault: false,
   },
   {
@@ -50,6 +54,7 @@ const COLOR_GROUPS = [
       { label: "Background", key: "background" },
       { label: "Foreground", key: "foreground" },
     ],
+    contrastPair: { background: "background", foreground: "foreground" },
     isOpenByDefault: false,
   },
   {
@@ -59,6 +64,7 @@ const COLOR_GROUPS = [
       { label: "Card", key: "card" },
       { label: "Card Foreground", key: "card-foreground" },
     ],
+    contrastPair: { background: "card", foreground: "card-foreground" },
     isOpenByDefault: false,
   },
   {
@@ -68,6 +74,7 @@ const COLOR_GROUPS = [
       { label: "Muted", key: "muted" },
       { label: "Muted Foreground", key: "muted-foreground" },
     ],
+    contrastPair: { background: "muted", foreground: "muted-foreground" },
     isOpenByDefault: false,
   },
   {
@@ -77,6 +84,7 @@ const COLOR_GROUPS = [
       { label: "Destructive", key: "destructive" },
       { label: "Destructive Foreground", key: "destructive-foreground" },
     ],
+    contrastPair: { background: "destructive", foreground: "destructive-foreground" },
     isOpenByDefault: false,
   },
   {
@@ -86,6 +94,7 @@ const COLOR_GROUPS = [
       { label: "Popover", key: "popover" },
       { label: "Popover Foreground", key: "popover-foreground" },
     ],
+    contrastPair: { background: "popover", foreground: "popover-foreground" },
     isOpenByDefault: false,
   },
   {
@@ -123,6 +132,11 @@ const COLOR_GROUPS = [
       { label: "Sidebar Border", key: "sidebar-border" },
       { label: "Sidebar Ring", key: "sidebar-ring" },
     ],
+    contrastPairs: [
+      { background: "sidebar", foreground: "sidebar-foreground" },
+      { background: "sidebar-primary", foreground: "sidebar-primary-foreground" },
+      { background: "sidebar-accent", foreground: "sidebar-accent-foreground" },
+    ],
     isOpenByDefault: false,
   },
 ] as const;
@@ -134,6 +148,16 @@ const openItems = ref<string[]>(
 const themeGroupByKey = Object.fromEntries(
   COLOR_GROUPS.flatMap((group) => group.fields.map((field) => [field.key, group.id])),
 ) as Record<string, string>;
+
+function getContrastPairs(group: (typeof COLOR_GROUPS)[number]) {
+  if ("contrastPair" in group && group.contrastPair) {
+    return [group.contrastPair];
+  }
+  if ("contrastPairs" in group && group.contrastPairs) {
+    return group.contrastPairs;
+  }
+  return [];
+}
 
 function focusThemeColorInput(themeKey: string) {
   const groupId = themeGroupByKey[themeKey];
@@ -207,6 +231,15 @@ onBeforeUnmount(() => {
               v-model="theme.data[mode][field.key]"
             />
           </div>
+
+          <!-- WCAG Contrast Checker -->
+          <ContrastChecker
+            v-for="pair in getContrastPairs(group)"
+            :key="`${pair.background}-${pair.foreground}`"
+            :background="theme.data[mode][pair.background]"
+            :foreground="theme.data[mode][pair.foreground]"
+            class="mt-4"
+          />
         </AccordionContent>
       </AccordionItem>
     </Accordion>
