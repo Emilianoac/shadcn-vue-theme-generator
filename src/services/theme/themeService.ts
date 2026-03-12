@@ -2,6 +2,7 @@ import { themes, type ThemeId } from "@/data/themes";
 import type { ThemeService } from "./theme.interface";
 import { fontService } from "@/services/font/fontService";
 import { generateThemeCssCode, objectToCssVariables } from "./themeCode.utils";
+import { createAutoGeneratorService } from "./auto/generator.service";
 
 const STORAGE_KEY = "current-theme";
 const CUSTOM_THEME_STORAGE_KEY = "current-theme-custom";
@@ -12,6 +13,8 @@ type StoredCustomTheme = {
 };
 
 export function createThemeService(): ThemeService {
+  const autoGeneratorService = createAutoGeneratorService();
+
   return {
     applyTheme(theme) {
       if (theme.externalFonts.length) {
@@ -85,6 +88,8 @@ export function createThemeService(): ThemeService {
     clearCustomTheme() {
       localStorage.removeItem(CUSTOM_THEME_STORAGE_KEY);
     },
+
+    auto: autoGeneratorService,
   };
 }
 
