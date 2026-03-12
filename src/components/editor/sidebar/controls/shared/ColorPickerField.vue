@@ -34,9 +34,9 @@ function updateFromSwatch(event: Event) {
 <template>
   <div class="space-y-2" :data-theme-color-field="themeKey">
     <label :for="inputId" class="block text-xs">{{ label }}</label>
-    <div class="flex items-center">
+    <div class="flex items-center gap-1">
       <div
-        class="relative h-7 w-7 shrink-0 overflow-hidden border border-e-0 hover:opacity-80 rounded-tl-[2px] rounded-bl-[2px]"
+        class="relative h-7 w-7 shrink-0 overflow-hidden border hover:opacity-80"
         :style="{ backgroundColor: swatchHex }"
       >
         <input
@@ -49,7 +49,7 @@ function updateFromSwatch(event: Event) {
       <Input
         :id="inputId"
         v-model="model"
-        class="rounded-[2px] shadow-none h-7 text-[0.8em]! rounded-tl-none! rounded-bl-none! border-border"
+        class="shadow-none h-7 text-[0.8em]! rounded-tl-none! rounded-bl-none! border-border focus:border-primary focus:outline-none"
       />
     </div>
   </div>
