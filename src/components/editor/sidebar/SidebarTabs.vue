@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ControlsColor from "@/components/editor/sidebar/controls/ControlsColor.vue";
+import AutoGenerate from "@/components/editor/sidebar/tabs/auto-generate/AutoGenerate.vue";
 
 const activeTab = ref("colors");
 
@@ -24,14 +25,9 @@ const tabs = [
     component: ControlsColor,
   },
   {
-    id: "typography",
-    label: "Typography",
-    component: null,
-  },
-  {
-    id: "others",
-    label: "Others",
-    component: null,
+    id: "auto-generate",
+    label: "Auto Generate",
+    component: AutoGenerate,
   },
 ];
 </script>
@@ -55,9 +51,9 @@ const tabs = [
       class="size-full overflow-auto mt-0!"
     >
       <Component :is="tab.component" v-if="tab.component" />
-      <span v-else class="text-muted-foreground text-sm block text-center p-4"
-        >Not implemented yet.</span
-      >
+      <span v-else class="text-muted-foreground text-sm block text-center p-4">
+        Not implemented yet.
+      </span>
     </TabsContent>
   </Tabs>
 </template>
