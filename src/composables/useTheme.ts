@@ -53,9 +53,22 @@ export function useTheme() {
     currentTheme.value = createEditableTheme(themes[themeId.value]);
   }
 
+  function applyGeneratedTheme(theme: Theme) {
+    // Mark as custom theme since it's generated dynamically
+    isCustomTheme.value = true;
+    isInitialLoad = false;
+
+    // Apply generated theme
+    currentTheme.value = createEditableTheme(theme);
+
+    // Save to custom storage
+    themeService.saveCustomTheme(themeId.value, currentTheme.value);
+  }
+
   return {
     setTheme,
     resetTheme,
+    applyGeneratedTheme,
     themeId,
     theme: currentTheme,
     isCustomTheme,
