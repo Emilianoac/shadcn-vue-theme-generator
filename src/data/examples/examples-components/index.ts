@@ -6,7 +6,7 @@ export { default as Avatar } from "./avatar/AvatarExamples.vue";
 export { default as Badge } from "./badge/BadgeExamples.vue";
 export { default as Breadcrumb } from "./breadcrumb/BreadcrumbExamples.vue";
 export { default as Button } from "./button/ButtonExamples.vue";
-export { default as ButtonGroup } from "./ComponentButtonGroup.vue";
+export { default as ButtonGroup } from "./button-group/_Examples.vue";
 export { default as Calendar } from "./ComponentCalendar.vue";
 export { default as Card } from "./ComponentCard.vue";
 export { default as Carousel } from "./ComponentCarousel.vue";
