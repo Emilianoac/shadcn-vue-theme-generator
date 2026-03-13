@@ -73,7 +73,7 @@ function updateFromSwatch(event: Event) {
         <Label class="text-xs">Base Color</Label>
         <div class="flex items-center gap-1">
           <div
-            class="relative h-7 w-7 shrink-0 overflow-hidden border hover:opacity-80"
+            class="relative h-7 w-7 shrink-0 overflow-hidden border hover:opacity-80 rounded-sm"
             :style="{ backgroundColor: swatchHex }"
           >
             <input
@@ -83,11 +83,7 @@ function updateFromSwatch(event: Event) {
               class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
             />
           </div>
-          <Input
-            v-model="selectedColor"
-            class="shadow-none h-7 text-[0.8em]! border-border focus:border-primary focus:outline-none"
-            placeholder="#3b82f6"
-          />
+          <Input v-model="selectedColor" class="h-7 text-[0.8em]!" placeholder="#3b82f6" />
         </div>
       </div>
 
