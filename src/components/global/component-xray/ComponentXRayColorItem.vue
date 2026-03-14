@@ -14,22 +14,20 @@ const emit = defineEmits<{
 
 <template>
   <div class="flex items-center justify-between gap-4 bg-muted/50 px-4 py-3 rounded-lg">
-    <div class="flex-1 min-w-0">
-      <p class="font-medium text-sm">
-        {{ mapped.label }}
+    <div class="flex-1 min-w-0 space-y-1">
+      <p
+        v-if="mapped.variants && mapped.variants.length > 0"
+        class="text-xs text-muted-foreground/80"
+      >
+        On <strong>{{ mapped.variants.join(" + ") }}</strong>
       </p>
+
+      <p class="font-medium text-sm">{{ mapped.label }} Color</p>
 
       <p>
         <code class="text-xs text-muted-foreground font-mono select-text break-all">
           {{ mapped.className }}
         </code>
-      </p>
-
-      <p
-        v-if="mapped.variants && mapped.variants.length > 0"
-        class="text-xs text-muted-foreground/80 mt-1"
-      >
-        Context: <strong>{{ mapped.variants.join(" + ") }}</strong>
       </p>
     </div>
     <div class="shrink-0 flex items-center gap-2">
