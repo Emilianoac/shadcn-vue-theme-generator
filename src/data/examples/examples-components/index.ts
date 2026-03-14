@@ -8,7 +8,7 @@ export { default as Breadcrumb } from "./breadcrumb/BreadcrumbExamples.vue";
 export { default as Button } from "./button/ButtonExamples.vue";
 export { default as ButtonGroup } from "./button-group/_Examples.vue";
 export { default as Calendar } from "./calendar/_Examples.vue";
-export { default as Card } from "./ComponentCard.vue";
+export { default as Card } from "./card/_Examples.vue";
 export { default as Carousel } from "./ComponentCarousel.vue";
 export { default as Chart } from "./ComponentChart.vue";
 export { default as Checkbox } from "./ComponentCheckbox.vue";
