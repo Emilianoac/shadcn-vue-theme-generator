@@ -75,6 +75,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
+  <!-- data-component-x-ray attributes are used internal functions to identify components in the template -->
+  <!-- They do not affect the functionality or styling of the component. -->
+
   <DefineMonthTemplate v-slot="{ date }">
     <div class="**:data-[slot=native-select-icon]:right-1">
       <div class="relative">
@@ -90,6 +93,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
               });
             }
           "
+          data-component-x-ray="NativeSelect"
         >
           <NativeSelectOption
             v-for="month in createYear({ dateObj: date })"
@@ -119,6 +123,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
               });
             }
           "
+          data-component-x-ray="NativeSelect"
         >
           <NativeSelectOption
             v-for="year in yearRange"
@@ -140,12 +145,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     data-slot="calendar"
     :class="cn('p-3', props.class)"
   >
-    <CalendarHeader class="pt-0">
+    <CalendarHeader class="pt-0" data-component-x-ray="CalendarHeader">
       <nav class="flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
-        <CalendarPrevButton>
+        <CalendarPrevButton data-component-x-ray="CalendarPrevButton">
           <slot name="calendar-prev-icon" />
         </CalendarPrevButton>
-        <CalendarNextButton>
+        <CalendarNextButton data-component-x-ray="CalendarNextButton">
           <slot name="calendar-next-icon" />
         </CalendarNextButton>
       </nav>
@@ -182,7 +187,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
     <div class="flex flex-col gap-y-4 mt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">
       <CalendarGrid v-for="month in grid" :key="month.value.toString()">
-        <CalendarGridHead>
+        <CalendarGridHead data-component-x-ray="CalendarGridHead">
           <CalendarGridRow>
             <CalendarHeadCell v-for="day in weekDays" :key="day">
               {{ day }}
@@ -195,7 +200,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
             :key="`weekDate-${index}`"
             class="mt-2 w-full"
           >
-            <CalendarCell v-for="weekDate in weekDates" :key="weekDate.toString()" :date="weekDate">
+            <CalendarCell
+              v-for="weekDate in weekDates"
+              :key="weekDate.toString()"
+              :date="weekDate"
+              data-component-x-ray="CalendarCell"
+            >
               <CalendarCellTrigger :day="weekDate" :month="month.value" />
             </CalendarCell>
           </CalendarGridRow>

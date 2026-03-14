@@ -11,8 +11,8 @@ const date = ref(fromDate(new Date(), getLocalTimeZone())) as Ref<DateValue>;
   <div class="flex justify-center">
     <Calendar
       v-model="date"
-      class="rounded-md border shadow-sm mx-auto"
-      layout="month-and-year"
+      class="mx-auto"
+      layout="year-only"
       :min-value="new CalendarDate(1925, 1, 1)"
       :max-value="new CalendarDate(2035, 1, 1)"
     />
