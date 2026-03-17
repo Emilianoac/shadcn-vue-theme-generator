@@ -11,7 +11,7 @@ export { default as Calendar } from "./calendar/_Examples.vue";
 export { default as Card } from "./card/_Examples.vue";
 export { default as Carousel } from "./carousel/_Examples.vue";
 export { default as Chart } from "./chart/_Examples.vue";
-export { default as Checkbox } from "./ComponentCheckbox.vue";
+export { default as Checkbox } from "./checkbox/_Examples.vue";
 export { default as Collapsible } from "./ComponentCollapsible.vue";
 export { default as Combobox } from "./ComponentCombobox.vue";
 export { default as Command } from "./ComponentCommand.vue";
