@@ -139,8 +139,10 @@ const FileTreeItemComponent = defineComponent({
 <template>
   <Card class="mx-auto w-full max-w-xs" data-component-x-ray="Card">
     <CardHeader data-component-x-ray="CardHeader">
-      <CardTitle>File tree</CardTitle>
-      <CardDescription> A collapsible file tree component. </CardDescription>
+      <CardTitle data-component-x-ray="CardTitle">Collapsible File Tree</CardTitle>
+      <CardDescription data-component-x-ray="CardDescription">
+        A collapsible file tree example using the Collapsible component.
+      </CardDescription>
     </CardHeader>
 
     <CardContent data-component-x-ray="CardContent">
