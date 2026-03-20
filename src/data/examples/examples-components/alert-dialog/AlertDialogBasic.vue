@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
     <AlertDialogTrigger as-child class="mx-auto block">
       <Button variant="outline" data-component-x-ray-trigger="Button"> Default </Button>
     </AlertDialogTrigger>
-    <AlertDialogContent data-component-x-ray="AlertDialogContent">
+    <AlertDialogContent data-component-x-ray="AlertDialogContent" to="#examples-container">
       <AlertDialogHeader data-component-x-ray="AlertDialogHeader">
         <AlertDialogTitle data-component-x-ray="AlertDialogTitle">
           Are you absolutely sure?

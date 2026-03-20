@@ -10,7 +10,13 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps<AlertDialogContentProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<
+  AlertDialogContentProps & {
+    class?: HTMLAttributes["class"];
+    // SHADCN-VUE THEME GENERATOR CUSTOMIZATION: Allow optional "to" prop for portal target, defaulting to body if not provided.
+    to?: string;
+  }
+>();
 const emits = defineEmits<AlertDialogContentEmits>();
 
 const delegatedProps = reactiveOmit(props, "class");
@@ -46,8 +52,8 @@ function handleCloseAutoFocus(event: Event): void {
     - Content: fixed → absolute (positioned relative to container)
     - Custom local overlay only when content is open
   -->
-  <!-- CHANGE 4: Render portal inside examples container instead of body. -->
-  <AlertDialogPortal to="#examples-container">
+  <!-- CHANGE 4: Portal target is examples container to scope dialog and overlay within preview area. -->
+  <AlertDialogPortal :to="props.to || undefined">
     <!-- CHANGE 5: Dialog content is positioned absolute so it is scoped to examples container. -->
     <AlertDialogContent
       data-slot="alert-dialog-content"

@@ -18,7 +18,11 @@ import { Button } from "@/components/ui/button";
     <AlertDialogTrigger as-child class="mx-auto block">
       <Button variant="outline" data-component-x-ray-trigger="Button"> Small </Button>
     </AlertDialogTrigger>
-    <AlertDialogContent class="max-w-xs sm:max-w-xs" data-component-x-ray="AlertDialogContent">
+    <AlertDialogContent
+      class="max-w-xs sm:max-w-xs"
+      data-component-x-ray="AlertDialogContent"
+      to="#examples-container"
+    >
       <AlertDialogHeader data-component-x-ray="AlertDialogHeader">
         <AlertDialogTitle class="text-center" data-component-x-ray="AlertDialogTitle">
           Allow accessory to connect?
