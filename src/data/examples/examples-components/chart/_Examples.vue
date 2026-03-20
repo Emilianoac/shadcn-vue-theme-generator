@@ -13,7 +13,28 @@ import ChartRadialRaw from "./ChartRadial.vue?raw";
 
 const { isActive } = useComponentXRay();
 
-const chartColors = ["chart-1", "chart-2", "chart-3", "chart-4", "chart-5"];
+const chartColors = [
+  {
+    name: "chart-1",
+    className: "bg-chart-1",
+  },
+  {
+    name: "chart-2",
+    className: "bg-chart-2",
+  },
+  {
+    name: "chart-3",
+    className: "bg-chart-3",
+  },
+  {
+    name: "chart-4",
+    className: "bg-chart-4",
+  },
+  {
+    name: "chart-5",
+    className: "bg-chart-5",
+  },
+];
 
 function goToChartColors(themeKey: string): void {
   window.setTimeout(() => {
@@ -35,13 +56,13 @@ function goToChartColors(themeKey: string): void {
           <p class="text-muted-foreground text-sm">Go to chart colors in theme editor</p>
         </div>
         <div class="flex items-center gap-3">
-          <TooltipProvider v-for="color in chartColors" :key="color">
+          <TooltipProvider v-for="color in chartColors" :key="color.name">
             <Tooltip>
               <TooltipTrigger as-child>
                 <div
                   class="w-5 h-5 rounded-sm hover:opacity-70 cursor-pointer"
-                  :class="`bg-${color}`"
-                  @click="goToChartColors(color)"
+                  :class="color.className"
+                  @click="goToChartColors(color.name)"
                 ></div>
               </TooltipTrigger>
               <TooltipContent>
