@@ -11,16 +11,29 @@ defineOptions({
   inheritAttrs: false,
 });
 
-// Optional zIndex prop allows customization of dialog content stacking order
-// Default: 50 (standard for most dialogs)
-// Use higher values (e.g., 2147483647) for critical dialogs that must stay on top
+/**
+ * [SHADCN-VUE THEME GENERATOR CUSTOMIZATION]
+ * Added zIndex prop to DialogContent for better control over stacking order in complex UIs.
+ * This allows dialogs to be layered appropriately, especially when multiple dialogs or overlays are present.
+ * Default zIndex is set to 50, which is standard for most dialogs, but can be increased for critical dialogs that must stay on top (e.g., zIndex: 2147483647).
+ *
+ * Additionally, added support for a "to" prop to specify a portal target, allowing dialogs to render within a specific container (like #examples-container) instead of the body. This is particularly useful in scenarios like ComponentXRay where you want the dialog to coexist with other UI elements without blocking interactions.
+ *
+ * The component also manages a local overlay state to ensure that only the currently open dialog instance renders a dimmer, preventing issues with stacked/inactive overlays when multiple dialogs are used in the same context.
+ *
+ * CHANGE LOG:
+ * 1. Added zIndex prop with default value of 50 for dialog content.
+ * 2. Implemented local overlay state to control visibility of the dimmer only for the active dialog instance.
+ * 3. Added event handlers for openAutoFocus and closeAutoFocus to manage overlay visibility when the dialog opens and closes.
+ * 4. Updated the template to render the portal inside a specified container (e.g., #examples-container) instead of the body, and adjusted
+ */
+
 const props = withDefaults(
   defineProps<
     DialogContentProps & {
       class?: HTMLAttributes["class"];
       showCloseButton?: boolean;
       zIndex?: number;
-      // Optional prop to specify portal target, allowing dialog to render within a specific container instead of body.
       to?: string;
     }
   >(),
@@ -35,38 +48,21 @@ const delegatedProps = reactiveOmit(props, "class", "zIndex");
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
-// CHANGE 1: Track local overlay state so only the currently open dialog instance renders a dimmer.
+// Custom changes from SHADCN-VUE THEME GENERATOR:
 const isOverlayVisible = ref(false);
-
 function handleOpenAutoFocus(event: Event): void {
-  // CHANGE 2: When dialog opens, enable local overlay for this instance.
   isOverlayVisible.value = true;
   emits("openAutoFocus", event);
 }
 
 function handleCloseAutoFocus(event: Event): void {
-  // CHANGE 3: When dialog closes, hide local overlay to avoid stacked/inactive overlays.
   isOverlayVisible.value = false;
   emits("closeAutoFocus", event);
 }
 </script>
 
 <template>
-  <!--
-    SHADCN-VUE THEME GENERATOR CUSTOMIZATION:
-    Portal to #examples-container instead of body to scope dialog rendering to the preview area.
-    This allows ComponentXRay dialog to coexist with example dialogs, enabling live color preview
-    while inspecting dialog components without closing the source dialog.
-
-    Changed:
-    - AlertDialogPortal: added to="#examples-container"
-    - Overlay: fixed → absolute (positioned relative to container)
-    - Content: fixed → absolute (positioned relative to container)
-    - Custom local overlay only when content is open
-  -->
-  <!-- CHANGE 4: Render portal inside examples container instead of body. -->
   <DialogPortal :to="props.to || undefined">
-    <!-- CHANGE 5: Dialog content is positioned absolute so it is scoped to examples container. -->
     <DialogContent
       data-slot="dialog-content"
       v-bind="{ ...$attrs, ...forwarded }"
@@ -91,7 +87,6 @@ function handleCloseAutoFocus(event: Event): void {
         <span class="sr-only">Close</span>
       </DialogClose>
     </DialogContent>
-    <!-- CHANGE 6: Local overlay is custom, blocks clicks behind it, and is only visible while open. -->
     <div
       v-if="isOverlayVisible"
       data-slot="alert-dialog-overlay"
