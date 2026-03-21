@@ -16,7 +16,6 @@ export { default as Collapsible } from "./collapsible/_Examples.vue";
 export { default as Combobox } from "./combobox/_Examples.vue";
 export { default as Command } from "./command/_Examples.vue";
 export { default as ContextMenu } from "./context-menu/_Examples.vue";
-export { default as DatePicker } from "./ComponentDatePicker.vue";
 export { default as Dialog } from "./ComponentDialog.vue";
 export { default as Drawer } from "./ComponentDrawer.vue";
 export { default as DropdownMenu } from "./ComponentDropdownMenu.vue";
