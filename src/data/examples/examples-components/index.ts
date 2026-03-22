@@ -17,7 +17,7 @@ export { default as Combobox } from "./combobox/_Examples.vue";
 export { default as Command } from "./command/_Examples.vue";
 export { default as ContextMenu } from "./context-menu/_Examples.vue";
 export { default as Dialog } from "./dialog/_Examples.vue";
-export { default as Drawer } from "./ComponentDrawer.vue";
+export { default as Drawer } from "./drawer/_Examples.vue";
 export { default as DropdownMenu } from "./ComponentDropdownMenu.vue";
 export { default as Empty } from "./ComponentEmpty.vue";
 export { default as Field } from "./ComponentField.vue";
