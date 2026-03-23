@@ -3,7 +3,5 @@ import { Input } from "@/components/ui/input";
 </script>
 
 <template>
-  <div class="max-w-100 mx-auto">
-    <Input type="email" placeholder="Email" />
-  </div>
+  <Input type="email" placeholder="Email" data-component-x-ray-trigger="Input" />
 </template>
