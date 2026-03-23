@@ -21,7 +21,7 @@ export { default as Drawer } from "./drawer/_Examples.vue";
 export { default as DropdownMenu } from "./dropdown-menu/_Examples.vue";
 export { default as Empty } from "./empty/_Examples.vue";
 export { default as Field } from "./field/_Examples.vue";
-export { default as HoverCard } from "./ComponentHoverCard.vue";
+export { default as HoverCard } from "./hover-card/_Examples.vue";
 export { default as Input } from "./ComponentInput.vue";
 export { default as InputGroup } from "./ComponentInputGroup.vue";
 export { default as InputOTP } from "./ComponentInputOTP.vue";
