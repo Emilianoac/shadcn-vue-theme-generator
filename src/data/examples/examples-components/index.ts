@@ -20,7 +20,7 @@ export { default as Dialog } from "./dialog/_Examples.vue";
 export { default as Drawer } from "./drawer/_Examples.vue";
 export { default as DropdownMenu } from "./dropdown-menu/_Examples.vue";
 export { default as Empty } from "./empty/_Examples.vue";
-export { default as Field } from "./ComponentField.vue";
+export { default as Field } from "./field/_Examples.vue";
 export { default as HoverCard } from "./ComponentHoverCard.vue";
 export { default as Input } from "./ComponentInput.vue";
 export { default as InputGroup } from "./ComponentInputGroup.vue";
