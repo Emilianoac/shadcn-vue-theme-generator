@@ -23,7 +23,7 @@ export { default as Empty } from "./empty/_Examples.vue";
 export { default as Field } from "./field/_Examples.vue";
 export { default as HoverCard } from "./hover-card/_Examples.vue";
 export { default as Input } from "./input/_Examples.vue";
-export { default as InputGroup } from "./ComponentInputGroup.vue";
+export { default as InputGroup } from "./input-group/_Examples.vue";
 export { default as InputOTP } from "./ComponentInputOTP.vue";
 export { default as Kbd } from "./ComponentKbd.vue";
 export { default as Label } from "./ComponentLabel.vue";
