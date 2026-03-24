@@ -32,7 +32,7 @@ export { default as NativeSelect } from "./native-select/_Examples.vue";
 export { default as NavigationMenu } from "./navigation-menu/_Examples.vue";
 export { default as NumberField } from "./number-field/_Examples.vue";
 export { default as Pagination } from "./pagination/_Examples.vue";
-export { default as Popover } from "./ComponentPopover.vue";
+export { default as Popover } from "./popover/_Examples.vue";
 export { default as Progress } from "./ComponentProgress.vue";
 export { default as RadioGroup } from "./ComponentRadioGroup.vue";
 export { default as RangeCalendar } from "./ComponentRangeCalendar.vue";
