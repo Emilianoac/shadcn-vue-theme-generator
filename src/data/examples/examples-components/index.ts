@@ -26,7 +26,7 @@ export { default as Input } from "./input/_Examples.vue";
 export { default as InputGroup } from "./input-group/_Examples.vue";
 export { default as InputOTP } from "./input-otp/_Examples.vue";
 export { default as Kbd } from "./kbd/_Examples.vue";
-export { default as Label } from "./ComponentLabel.vue";
+export { default as Label } from "./label/_Examples.vue";
 export { default as Menubar } from "./ComponentMenubar.vue";
 export { default as NativeSelect } from "./ComponentNativeSelect.vue";
 export { default as NavigationMenu } from "./ComponentNavigationMenu.vue";
