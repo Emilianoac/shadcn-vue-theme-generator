@@ -25,7 +25,7 @@ export { default as HoverCard } from "./hover-card/_Examples.vue";
 export { default as Input } from "./input/_Examples.vue";
 export { default as InputGroup } from "./input-group/_Examples.vue";
 export { default as InputOTP } from "./input-otp/_Examples.vue";
-export { default as Kbd } from "./ComponentKbd.vue";
+export { default as Kbd } from "./kbd/_Examples.vue";
 export { default as Label } from "./ComponentLabel.vue";
 export { default as Menubar } from "./ComponentMenubar.vue";
 export { default as NativeSelect } from "./ComponentNativeSelect.vue";
