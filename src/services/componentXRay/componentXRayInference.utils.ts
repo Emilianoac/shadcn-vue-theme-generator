@@ -55,7 +55,7 @@ function findInheritedTextColor(element: HTMLElement): {
       const segments = cls.split(":");
       const baseClass = segments[segments.length - 1];
 
-      if (baseClass.startsWith("text-")) {
+      if (baseClass?.startsWith("text-")) {
         const themeKey = baseClass.replace("text-", "");
         const label = getThemeVariableLabel(themeKey);
 
