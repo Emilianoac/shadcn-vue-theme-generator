@@ -24,7 +24,7 @@ export const light = {
   "destructive-foreground": "oklch(1 0 0)",
 
   "border": "oklch(0.90 0.01 235)",
-  "input": "oklch(1 0 0)",
+  "input": "oklch(0.8875 0.0398 260.1443)",
   "ring": "oklch(0.45 0.18 245 / 0.5)",
 
   "chart-1": "oklch(0.45 0.18 245)",
@@ -71,7 +71,7 @@ export const dark = {
   "destructive-foreground": "oklch(1 0 0)",
 
   "border": "oklch(0.32 0.02 235)",
-  "input": "oklch(0.18 0.01 235)",
+  "input": "oklch(0.3348 0.0274 236.0956)",
   "ring": "oklch(0.55 0.15 245)",
 
   "chart-1": "oklch(0.55 0.15 245)",

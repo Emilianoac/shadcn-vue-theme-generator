@@ -11,12 +11,12 @@ export const light = {
   "secondary-foreground": "oklch(0 0 0)",
   "muted": "oklch(0.78 0 0)",
   "muted-foreground": "oklch(0.4 0 0)",
-  "accent": "oklch(0.8775 0.0841 199.4839)",
+  "accent": "oklch(0.8109 0 0)",
   "accent-foreground": "oklch(0 0 0)",
   "destructive": "oklch(0.45 0.18 25)",
   "destructive-foreground": "oklch(1 0 0)",
-  "border": "oklch(0.4 0 0)",
-  "input": "oklch(0.5931 0 0)",
+  "border": " oklch(0.6927 0 0)",
+  "input": "oklch(0.6862 0 0)",
   "ring": "oklch(0 0 0)",
 
   "chart-1": "oklch(0.35 0.12 260)",
@@ -41,29 +41,29 @@ export const dark = {
   "background": "oklch(0.3329 0 0)",
   "foreground": "oklch(0.9791 0 0)",
 
-  "card": "oklch(0.3904 0 0)",
+  "card": "oklch(0.2809 0 0)",
   "card-foreground": "oklch(0.9791 0 0)",
 
   "popover": "oklch(0.4276 0 0)",
   "popover-foreground": "oklch(0.9791 0 0)",
 
-  "primary": "oklch(0.6342 0.1349 249.0206)",
+  "primary": "oklch(0.5003 0.1521 258.6686)",
   "primary-foreground": "oklch(1 0 0)",
 
   "secondary": "oklch(0.2768 0 0)",
   "secondary-foreground": "oklch(0.9006 0 0)",
 
-  "muted": "oklch(0.4349 0 0)",
+  "muted": "oklch(0.3639 0 0)",
   "muted-foreground": "oklch(0.7508 0 0)",
 
-  "accent": "oklch(0.2366 0.0566 264.9306)",
+  "accent": " oklch(0.2393 0 0)",
   "accent-foreground": "oklch(1 0 0)",
 
-  "destructive": "oklch(0.6698 0.2102 23.6837)",
+  "destructive": "oklch(0.5703 0.2326 28.6928)",
   "destructive-foreground": "oklch(1 0 0)",
 
-  "border": "oklch(0.2178 0 0)",
-  "input": "oklch(0.2768 0 0)",
+  "border": "oklch(0.4091 0 0)",
+  "input": "oklch(0.4202 0 0)",
   "ring": "oklch(0.4999 0.1195 249.9564)",
 
   "chart-1": "oklch(0.5498 0.1195 249.7407)",
