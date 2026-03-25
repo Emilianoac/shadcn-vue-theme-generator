@@ -14,10 +14,5 @@ const dateRange = ref({
 </script>
 
 <template>
-  <RangeCalendar
-    v-model="dateRange"
-    class="rounded-md border shadow-sm w-max mx-auto"
-    :number-of-months="2"
-    disable-days-outside-current-view
-  />
+  <RangeCalendar v-model="dateRange" class="w-max mx-auto" data-component-x-ray="RangeCalendar" />
 </template>
