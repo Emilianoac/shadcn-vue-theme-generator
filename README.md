@@ -2,6 +2,8 @@
 
 Create custom CSS themes for shadcn-vue with a visual editor. Pick colors, see changes instantly, and export the code. No coding required.
 
+![Site screenshot](https://res.cloudinary.com/du6pa3pa5/image/upload/v1774466524/shadcn-vue-theme-generator_e0dkkj.jpg)
+
 ## Getting Started
 
 ```sh
