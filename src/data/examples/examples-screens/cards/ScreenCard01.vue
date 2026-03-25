@@ -15,9 +15,9 @@ import Payments from "./components/Payments.vue";
 
 <template>
   <div class="@container/examples w-full h-full">
-    <div class="grid grid-cols-1 @5xl:grid-cols-4 gap-4 items-start">
+    <div class="grid grid-cols-1 @5xl:grid-cols-5 gap-4 items-start">
       <!--COLUMN 1-->
-      <div class="grid col-span-2 gap-4 min-w-0">
+      <div class="grid col-span-3 gap-4 min-w-0">
         <div class="min-w-0">
           <Stats />
         </div>
