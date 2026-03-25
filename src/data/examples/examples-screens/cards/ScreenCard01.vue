@@ -22,7 +22,7 @@ import Payments from "./components/Payments.vue";
           <Stats />
         </div>
 
-        <div class="grid grid-cols-1 @7xl:grid-cols-2 gap-4 items-start">
+        <div class="grid grid-cols-1 @4xl:grid-cols-2 gap-4 items-start">
           <div class="grid gap-4">
             <div class="min-w-0 space-y-4">
               <Forms />
