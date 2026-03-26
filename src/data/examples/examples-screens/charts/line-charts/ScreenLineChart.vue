@@ -6,11 +6,13 @@ import LineChartStep from "./components/LineChartStep.vue";
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-5">
-    <LineChartInteractive class="col-span-3" />
-    <LineChartDefault />
-    <LineChartLinear />
-    <LineChartStep />
+  <div class="@container/line-chart-examples">
+    <div class="grid grid-cols-1 @2xl:grid-cols-3 gap-5">
+      <LineChartInteractive class="@2xl:col-span-3" />
+      <LineChartDefault />
+      <LineChartLinear />
+      <LineChartStep />
+    </div>
   </div>
 </template>
 

@@ -5,10 +5,12 @@ import PieChart3 from "./components/PieChart3.vue";
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-5">
-    <PieChart1 />
-    <PieChart2 />
-    <PieChart3 />
+  <div class="@container/pie-chart-examples">
+    <div class="grid grid-cols-1 @2xl:grid-cols-3 gap-5">
+      <PieChart1 />
+      <PieChart2 />
+      <PieChart3 />
+    </div>
   </div>
 </template>
 

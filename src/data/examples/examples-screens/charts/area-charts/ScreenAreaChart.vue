@@ -6,11 +6,13 @@ import AreaChartAxes from "./components/AreaChartAxes.vue";
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-5">
-    <AreaChartInteractive class="col-span-3" />
-    <AreaChartIcons />
-    <AreaChartGradient />
-    <AreaChartAxes />
+  <div class="@container/area-chart-examples">
+    <div class="grid grid-cols-1 @2xl:grid-cols-3 gap-5">
+      <AreaChartInteractive class="@2xl:col-span-3" />
+      <AreaChartIcons />
+      <AreaChartGradient />
+      <AreaChartAxes />
+    </div>
   </div>
 </template>
 
