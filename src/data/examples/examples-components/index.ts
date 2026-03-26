@@ -36,7 +36,7 @@ export { default as Popover } from "./popover/_Examples.vue";
 export { default as Progress } from "./progress/_Examples.vue";
 export { default as RadioGroup } from "./radio-group/_Examples.vue";
 export { default as RangeCalendar } from "./range-calendar/_Examples.vue";
-export { default as Resizable } from "./ComponentResizable.vue";
+export { default as Resizable } from "./resizable/_Examples.vue";
 export { default as ScrollArea } from "./ComponentScrollArea.vue";
 export { default as Select } from "./ComponentSelect.vue";
 export { default as Separator } from "./ComponentSeparator.vue";
