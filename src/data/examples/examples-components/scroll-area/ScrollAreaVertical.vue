@@ -6,14 +6,14 @@ const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length
 </script>
 
 <template>
-  <ScrollArea class="h-72 w-48 rounded-md border mx-auto">
+  <ScrollArea class="mx-auto h-72 w-48 rounded-md border" data-component-x-ray="ScrollArea">
     <div class="p-4">
       <h4 class="mb-4 text-sm leading-none font-medium">Tags</h4>
       <template v-for="tag in tags" :key="tag">
         <div class="text-sm">
           {{ tag }}
         </div>
-        <Separator class="my-2" />
+        <Separator class="my-2" data-component-x-ray="Separator" />
       </template>
     </div>
   </ScrollArea>
