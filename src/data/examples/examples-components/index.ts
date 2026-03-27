@@ -39,7 +39,7 @@ export { default as RangeCalendar } from "./range-calendar/_Examples.vue";
 export { default as Resizable } from "./resizable/_Examples.vue";
 export { default as ScrollArea } from "./scroll-area/_Examples.vue";
 export { default as Select } from "./select/_Examples.vue";
-export { default as Separator } from "./ComponentSeparator.vue";
+export { default as Separator } from "./separator/_Examples.vue";
 export { default as Sheet } from "./ComponentSheet.vue";
 export { default as Sidebar } from "./ComponentSidebar.vue";
 export { default as Skeleton } from "./ComponentSkeleton.vue";
