@@ -33,7 +33,7 @@ const emit = defineEmits<{
 
 <template>
   <Dialog :open="isOpen" @update:open="emit('update:isOpen', $event)">
-    <DialogContent :z-index="2147483647" @close-auto-focus="emit('closeAutoFocus', $event)">
+    <DialogContent class="z-2147483647" @close-auto-focus="emit('closeAutoFocus', $event)">
       <DialogHeader>
         <DialogTitle>
           <template v-if="isComponent">{{ elementLabel }} Component</template>
