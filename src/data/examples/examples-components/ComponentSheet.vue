@@ -5,13 +5,13 @@ import { Label } from "@/components/ui/label";
 import {
   Sheet,
   SheetClose,
+  SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import ComponentSheetContent from "./ComponentSheetContent.vue";
 </script>
 
 <template>
@@ -20,7 +20,7 @@ import ComponentSheetContent from "./ComponentSheetContent.vue";
       <SheetTrigger as-child>
         <Button variant="outline"> Open </Button>
       </SheetTrigger>
-      <ComponentSheetContent side="right">
+      <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
           <SheetDescription>
@@ -43,7 +43,7 @@ import ComponentSheetContent from "./ComponentSheetContent.vue";
             <Button variant="outline"> Close </Button>
           </SheetClose>
         </SheetFooter>
-      </ComponentSheetContent>
+      </SheetContent>
     </Sheet>
   </div>
 </template>
