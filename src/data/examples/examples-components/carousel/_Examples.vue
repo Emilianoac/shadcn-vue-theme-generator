@@ -15,7 +15,7 @@ import CarouselVerticalWithImagesRaw from "./CarouselVerticalImages.vue?raw";
 </script>
 
 <template>
-  <div class="@container w-full mx-auto">
+  <div class="@container max-w-200 mx-auto">
     <div class="grid grid-cols-1 @xl:grid-cols-2 gap-8 mx-auto">
       <ExampleCard :raw-component="CarouselDefaultRaw">
         <template #title>Default</template>
