@@ -503,7 +503,7 @@ const examples = {
         name: "Sheet",
         description:
           "Extends the Dialog component to display content that complements the main content of the screen.",
-        component: () => import("@/data/examples/examples-components/ComponentSheet.vue"),
+        component: () => import("@/data/examples/examples-components/sheet/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
