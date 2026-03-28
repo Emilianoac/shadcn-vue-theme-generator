@@ -34,11 +34,7 @@ const open = ref(false);
     >
       Open Menu
     </Button>
-    <CommandDialog
-      v-model:open="open"
-      data-component-x-ray="CommandDialog"
-      to="#examples-container"
-    >
+    <CommandDialog v-model:open="open" data-component-x-ray="CommandDialog">
       <Command data-component-x-ray="Command">
         <CommandInput
           placeholder="Type a command or search..."
