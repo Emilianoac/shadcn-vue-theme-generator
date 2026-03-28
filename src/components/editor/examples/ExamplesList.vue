@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ComponentExample } from "@/data/examples";
+import type { Example } from "@/data/examples";
 import "vue-sonner/style.css";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 defineProps<{
   searchQuery: string;
   selectedId: string | null;
-  filteredExamples: Record<string, { name: string; items: ComponentExample[] }>;
+  filteredExamples: Record<string, { name: string; items: Example[] }>;
   handleSelect: (id: string) => void;
 }>();
 

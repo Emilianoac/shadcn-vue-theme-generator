@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, nextTick, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
 import { useTheme } from "@/composables/useTheme";
+import { useEditorBridge } from "@/bridge/UseEditorBridge";
 import ColorPickerField from "./shared/ColorPickerField.vue";
 import ContrastChecker from "./shared/ContrastChecker.vue";
 
@@ -189,20 +190,10 @@ function focusThemeColorInput(themeKey: string) {
   });
 }
 
-function handleXRayNavigate(event: Event) {
-  const customEvent = event as CustomEvent<{ themeKey?: string }>;
-  const themeKey = customEvent.detail?.themeKey;
-  if (!themeKey) return;
-
-  focusThemeColorInput(themeKey);
-}
-
-onMounted(() => {
-  window.addEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
+useEditorBridge({
+  onFocusThemeColor: (themeKey: string) => {
+    focusThemeColorInput(themeKey);
+  },
 });
 </script>
 

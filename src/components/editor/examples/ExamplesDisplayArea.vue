@@ -1,61 +1,98 @@
 <script lang="ts" setup>
-import type { ComponentExample } from "@/data/examples";
-import "vue-sonner/style.css";
+import type { Example } from "@/data/examples";
 import { ExternalLink } from "lucide-vue-next";
-import { Toaster } from "@/components/ui/sonner";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ref, watch, onMounted } from "vue";
+import { usePreviewSync } from "@/apps/preview/usePreviewSync";
+import { Spinner } from "@/components/ui/spinner";
 
-defineProps<{
-  currentComponent: ComponentExample | null;
+const props = defineProps<{
+  currentExample: Example | null;
 }>();
+
+const isLoading = ref(true);
+const iframeRef = ref<HTMLIFrameElement | null>(null);
+const iframeURL = `${import.meta.env.BASE_URL}/preview.html`;
+const { startSync, sendToIframe } = usePreviewSync();
+startSync(() => iframeRef.value);
+
+function onIframeLoad() {
+  if (iframeRef.value) {
+    sendToIframe(iframeRef.value);
+    iframeRef.value?.contentWindow?.postMessage(
+      {
+        type: "LOAD_EXAMPLE",
+        exampleId: props.currentExample?.id,
+      },
+      "*",
+    );
+  }
+}
+
+watch(
+  () => props.currentExample?.id,
+  () => {
+    if (!iframeRef.value) return;
+    isLoading.value = true;
+
+    iframeRef.value.contentWindow?.postMessage(
+      {
+        type: "LOAD_EXAMPLE",
+        exampleId: props.currentExample?.id,
+      },
+      "*",
+    );
+  },
+);
+
+onMounted(() => {
+  window.addEventListener("message", (event) => {
+    if (event.data?.type === "EXAMPLE_LOADED") {
+      console.log("Example loaded in iframe");
+      isLoading.value = false;
+    }
+  });
+});
 </script>
 
 <template>
   <!-- Example Display Area -->
-  <div class="flex gap-4 flex-col overflow-hidden" v-if="currentComponent">
+  <div class="flex gap-4 flex-col overflow-hidden" v-if="currentExample">
     <div class="flex justify-between items-center flex-wrap gap-4 p-1">
       <div>
-        <h2 class="font-bold mb-1">{{ currentComponent.name }}</h2>
-        <p class="max-w-150 text-muted-foreground text-sm" v-if="currentComponent.description">
-          {{ currentComponent.description }}
+        <h2 class="font-bold mb-1">{{ currentExample.name }}</h2>
+        <p class="max-w-150 text-muted-foreground text-sm" v-if="currentExample.description">
+          {{ currentExample.description }}
         </p>
       </div>
 
       <a
-        v-if="currentComponent.componentSourceCodeUrl"
-        :href="currentComponent.componentSourceCodeUrl"
+        v-if="currentExample.componentSourceCodeUrl"
+        :href="currentExample.componentSourceCodeUrl"
         target="_blank"
         class="text-sm hover:underline inline-block rounded-sm"
       >
         Component Source Code <ExternalLink class="inline-block ml-1" :size="16" />
       </a>
     </div>
+
     <div
       id="examples-container"
-      class="relative border rounded-lg w-full min-h-0 flex justify-center items-start flex-1"
+      class="relative border rounded-lg w-full min-h-0 flex flex-col flex-1 overflow-hidden"
     >
-      <ScrollArea class="h-full w-full">
-        <div class="p-4 md:p-8">
-          <div
-            :class="[
-              'w-full max-w-full min-h-0',
-              'previewLayout' in currentComponent &&
-                currentComponent.previewLayout === 'full-height' &&
-                'h-full',
-            ]"
-          >
-            <component :is="currentComponent.component" :key="currentComponent.id" />
-          </div>
-        </div>
-        <Toaster position="top-center" />
-      </ScrollArea>
+      <iframe
+        ref="iframeRef"
+        :src="iframeURL"
+        class="w-full flex-1 border-none"
+        @load="onIframeLoad"
+      />
+
+      <div
+        v-if="isLoading"
+        class="absolute inset-0 flex items-center justify-center flex-col gap-2 bg-background/40 z-10 backdrop-blur-lg"
+      >
+        <Spinner />
+        <span>Loading Example...</span>
+      </div>
     </div>
   </div>
 </template>
-
-<style lang="postcss" scoped>
-:global(#examples-container [data-sonner-toaster]) {
-  position: absolute !important;
-  z-index: 60;
-}
-</style>

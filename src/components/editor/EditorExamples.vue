@@ -30,7 +30,7 @@ const filteredExamples = computed(() => {
   return result;
 });
 
-const currentComponent = computed(() => {
+const currentExample = computed(() => {
   for (const group of Object.values(examples)) {
     const found = group.items.find((item) => item.id === selectedId.value);
     if (found) return found;
@@ -53,7 +53,7 @@ function handleSelect(id: string) {
       @update:search-query="searchQuery = $event"
     />
 
-    <ExamplesDisplayArea :currentComponent="currentComponent" />
+    <ExamplesDisplayArea :current-example="currentExample" />
   </div>
 </template>
 

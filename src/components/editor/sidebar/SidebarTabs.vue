@@ -1,22 +1,11 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { ref } from "vue";
+import { useEditorBridge } from "@/bridge/UseEditorBridge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ControlsColor from "@/components/editor/sidebar/controls/ControlsColor.vue";
 import AutoGenerate from "@/components/editor/sidebar/tabs/auto-generate/AutoGenerate.vue";
 
 const activeTab = ref("colors");
-
-function handleXRayNavigate() {
-  activeTab.value = "colors";
-}
-
-onMounted(() => {
-  window.addEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("xray:focus-theme-color", handleXRayNavigate as EventListener);
-});
 
 const tabs = [
   {
@@ -30,6 +19,12 @@ const tabs = [
     component: AutoGenerate,
   },
 ];
+
+useEditorBridge({
+  onFocusThemeColor: () => {
+    activeTab.value = "colors";
+  },
+});
 </script>
 
 <template>
