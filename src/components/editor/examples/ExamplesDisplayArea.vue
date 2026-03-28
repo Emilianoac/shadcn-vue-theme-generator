@@ -58,9 +58,9 @@ onMounted(() => {
   <!-- Example Display Area -->
   <div class="flex gap-4 flex-col overflow-hidden" v-if="currentExample">
     <div class="flex justify-between items-center flex-wrap gap-4 p-1">
-      <div>
-        <h2 class="font-bold mb-1">{{ currentExample.name }}</h2>
-        <p class="max-w-150 text-muted-foreground text-sm" v-if="currentExample.description">
+      <div class="space-y-1">
+        <h2 class="font-bold text-sm">{{ currentExample.name }}</h2>
+        <p class="max-w-200 text-muted-foreground text-sm" v-if="currentExample.description">
           {{ currentExample.description }}
         </p>
       </div>
