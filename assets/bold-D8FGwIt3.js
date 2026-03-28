@@ -1,0 +1,1 @@
+import{g as a}from"./DialogTitle.vue_vue_type_script_setup_true_lang-B-mIWQEK.js";const e=a("bold",[["path",{d:"M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8",key:"mg9rjx"}]]);export{e as B};
