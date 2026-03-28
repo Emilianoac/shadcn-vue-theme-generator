@@ -1,1 +1,0 @@
-import{d as e,o,z as r,T as n,u as c,a7 as l,a3 as p}from"./DialogTitle.vue_vue_type_script_setup_true_lang-B-mIWQEK.js";const i=e({__name:"CardAction",props:{class:{}},setup(s){const a=s;return(t,d)=>(o(),r("div",{"data-slot":"card-action",class:n(c(l)("col-start-2 row-span-2 row-start-1 self-start justify-self-end",a.class))},[p(t.$slots,"default")],2))}});export{i as _};

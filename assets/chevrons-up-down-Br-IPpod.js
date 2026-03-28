@@ -1,0 +1,1 @@
+import{g as o}from"./DialogTitle.vue_vue_type_script_setup_true_lang-BO6eI9T0.js";const t=o("chevrons-up-down",[["path",{d:"m7 15 5 5 5-5",key:"1hf1tw"}],["path",{d:"m7 9 5-5 5 5",key:"sgt6xg"}]]);export{t as C};
