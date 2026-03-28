@@ -5,17 +5,9 @@ import { reactiveOmit } from "@vueuse/core";
 import { DialogOverlay } from "reka-ui";
 import { cn } from "@/lib/utils";
 
-// Optional zIndex prop allows customization of overlay stacking order
-// Default: 50 (standard for most overlays)
-// Use higher values (e.g., 2147483646) for critical overlays that must stay on top
-const props = withDefaults(
-  defineProps<DialogOverlayProps & { class?: HTMLAttributes["class"]; zIndex?: number }>(),
-  {
-    zIndex: 50,
-  },
-);
+const props = defineProps<DialogOverlayProps & { class?: HTMLAttributes["class"] }>();
 
-const delegatedProps = reactiveOmit(props, "class", "zIndex");
+const delegatedProps = reactiveOmit(props, "class");
 </script>
 
 <template>
@@ -28,7 +20,6 @@ const delegatedProps = reactiveOmit(props, "class", "zIndex");
         props.class,
       )
     "
-    :style="{ zIndex: props.zIndex }"
   >
     <slot />
   </DialogOverlay>

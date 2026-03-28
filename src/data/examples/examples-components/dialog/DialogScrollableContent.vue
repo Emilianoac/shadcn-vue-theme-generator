@@ -16,7 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
     <DialogTrigger :as-child="true">
       <Button variant="outline" data-component-x-ray-trigger="Button"> Scrollable Content </Button>
     </DialogTrigger>
-    <DialogContent to="#examples-container" data-component-x-ray="DialogContent">
+    <DialogContent data-component-x-ray="DialogContent">
       <DialogHeader data-component-x-ray="DialogHeader">
         <DialogTitle data-component-x-ray="DialogTitle">Scrollable Content</DialogTitle>
         <DialogDescription data-component-x-ray="DialogDescription">

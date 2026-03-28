@@ -17,11 +17,7 @@ import {
     <DialogTrigger :as-child="true">
       <Button variant="outline" data-component-x-ray-trigger="Button"> No Close Button </Button>
     </DialogTrigger>
-    <DialogContent
-      :show-close-button="false"
-      to="#examples-container"
-      data-component-x-ray="DialogContent"
-    >
+    <DialogContent :show-close-button="false" data-component-x-ray="DialogContent">
       <DialogHeader data-component-x-ray="DialogHeader">
         <DialogTitle data-component-x-ray="DialogTitle">No Close Button</DialogTitle>
         <DialogDescription data-component-x-ray="DialogDescription">

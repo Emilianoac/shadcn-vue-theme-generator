@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input";
       <DialogTrigger :as-child="true">
         <Button variant="outline" data-component-x-ray-trigger="Button"> Edit Profile </Button>
       </DialogTrigger>
-      <DialogContent to="#examples-container" data-component-x-ray="DialogContent">
+      <DialogContent data-component-x-ray="DialogContent">
         <DialogHeader data-component-x-ray="DialogHeader">
           <DialogTitle data-component-x-ray="DialogTitle">Edit profile</DialogTitle>
           <DialogDescription data-component-x-ray="DialogDescription">
