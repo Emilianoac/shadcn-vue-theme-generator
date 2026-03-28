@@ -8,7 +8,7 @@ import BarChartMultiple from "./components/BarChartMultiple.vue";
 <template>
   <div class="@container/area-chart-examples">
     <div class="grid grid-cols-1 @2xl:grid-cols-3 gap-5">
-      <BarChartInteractive class="2xl:col-span-3" />
+      <BarChartInteractive class="@2xl:col-span-3" />
       <BarChartDefault />
       <BarChartHorizontal />
       <BarChartMultiple />
