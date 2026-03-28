@@ -19,11 +19,7 @@ import { Layers } from "lucide-vue-next";
     <AlertDialogTrigger as-child class="mx-auto block">
       <Button variant="outline" data-component-x-ray-trigger="Button"> Small (Media) </Button>
     </AlertDialogTrigger>
-    <AlertDialogContent
-      class="max-w-xs sm:max-w-xs"
-      data-component-x-ray="AlertDialogContent"
-      to="#examples-container"
-    >
+    <AlertDialogContent class="max-w-xs sm:max-w-xs" data-component-x-ray="AlertDialogContent">
       <AlertDialogHeader class="items-center" data-component-x-ray="AlertDialogHeader">
         <Layers class="mx-auto mb-4 h-16 w-16 text-base-foreground bg-muted p-4 rounded-sm" />
         <AlertDialogTitle class="text-center" data-component-x-ray="AlertDialogTitle">
