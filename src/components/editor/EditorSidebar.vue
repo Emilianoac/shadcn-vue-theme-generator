@@ -9,7 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
     <div class="relative flex h-full flex-1 flex-col bg-background">
       <div class="flex min-h-0 w-full flex-1 flex-col">
         <div class="flex min-h-0 flex-1 flex-col space-y-4 mb-3">
-          <ScrollArea class=" ">
+          <ScrollArea class="h-full">
             <SidebarTabs />
           </ScrollArea>
         </div>
