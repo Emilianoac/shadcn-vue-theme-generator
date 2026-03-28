@@ -29,7 +29,6 @@ const DRAWER_SIDES = ["top", "right", "bottom", "left"] as const;
       </DrawerTrigger>
       <DrawerContent
         class="data-[vaul-drawer-direction=bottom]:max-h-[50vh] data-[vaul-drawer-direction=top]:max-h-[50vh]"
-        to="#examples-container"
         data-component-x-ray="DrawerContent"
       >
         <DrawerHeader data-component-x-ray="DrawerHeader">

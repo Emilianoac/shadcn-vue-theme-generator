@@ -17,7 +17,7 @@ import {
     <DrawerTrigger :as-child="true">
       <Button variant="outline" data-component-x-ray-trigger="Button"> Scrollable Content </Button>
     </DrawerTrigger>
-    <DrawerContent to="#examples-container" data-component-x-ray="DrawerContent">
+    <DrawerContent data-component-x-ray="DrawerContent">
       <DrawerHeader data-component-x-ray="DrawerHeader">
         <DrawerTitle data-component-x-ray="DrawerTitle">Move Goal</DrawerTitle>
         <DrawerDescription data-component-x-ray="DrawerDescription"
