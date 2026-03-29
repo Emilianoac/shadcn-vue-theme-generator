@@ -543,7 +543,7 @@ const examples = {
         id: "sonner",
         name: "Sonner",
         description: "An opinionated toast component for Vue.",
-        component: () => import("@/data/examples/examples-components/ComponentSonner.vue"),
+        component: () => import("@/data/examples/examples-components/sonner/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
