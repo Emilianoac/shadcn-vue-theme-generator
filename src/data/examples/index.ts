@@ -533,7 +533,7 @@ const examples = {
         id: "slider",
         name: "Slider",
         description: "An input where the user selects a value from within a given range.",
-        component: () => import("@/data/examples/examples-components/ComponentSlider.vue"),
+        component: () => import("@/data/examples/examples-components/slider/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,

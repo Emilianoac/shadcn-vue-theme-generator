@@ -3,5 +3,5 @@ import { Slider } from "@/components/ui/slider";
 </script>
 
 <template>
-  <Slider :default-value="[33]" :max="100" :step="1" class="max-w-100 mx-auto" />
+  <Slider :default-value="[25, 50]" :max="100" :step="5" data-component-x-ray-trigger="Slider" />
 </template>
