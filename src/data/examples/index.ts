@@ -523,7 +523,7 @@ const examples = {
         id: "skeleton",
         name: "Skeleton",
         description: "Use to show a placeholder while content is loading.",
-        component: () => import("@/data/examples/examples-components/ComponentSkeleton.vue"),
+        component: () => import("@/data/examples/examples-components/skeleton/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
