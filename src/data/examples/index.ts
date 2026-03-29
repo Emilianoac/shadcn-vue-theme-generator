@@ -513,7 +513,7 @@ const examples = {
         id: "sidebar",
         name: "Sidebar",
         description: "A composable, themeable and customizable sidebar component.",
-        component: () => import("@/data/examples/examples-components/ComponentSidebar.vue"),
+        component: () => import("@/data/examples/examples-components/sidebar/_Examples.vue"),
         previewLayout: "full-height",
         deprecated: false,
         visible: true,
