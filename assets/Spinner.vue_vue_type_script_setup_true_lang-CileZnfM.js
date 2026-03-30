@@ -1,1 +1,0 @@
-import{d as n,o,a as r,T as c,u as a,a6 as l,a7 as t}from"./DialogTitle.vue_vue_type_script_setup_true_lang-qm1obxa6.js";const u=n({__name:"Spinner",props:{class:{}},setup(s){const e=s;return(i,p)=>(o(),r(a(t),{role:"status","aria-label":"Loading",class:c(a(l)("size-4 animate-spin",e.class))},null,8,["class"]))}});export{u as _};

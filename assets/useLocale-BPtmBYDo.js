@@ -1,1 +1,0 @@
-import{bn as n,r as t,c as a}from"./DialogTitle.vue_vue_type_script_setup_true_lang-qm1obxa6.js";function r(e){const o=n({locale:t("en")});return a(()=>e?.value||o.locale?.value||"en")}export{r as u};

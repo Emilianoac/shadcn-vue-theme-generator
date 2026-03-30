@@ -1,1 +1,0 @@
-import{c as n,r as m,aY as r}from"./DialogTitle.vue_vue_type_script_setup_true_lang-qm1obxa6.js";function l(){const e=m(),t=n(()=>["#text","#comment"].includes(e.value?.$el.nodeName)?e.value?.$el.nextElementSibling:r(e));return{primitiveElement:e,currentElement:t}}export{l as u};
