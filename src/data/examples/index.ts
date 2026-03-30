@@ -615,7 +615,7 @@ const examples = {
         id: "textarea",
         name: "Textarea",
         description: "Displays a form textarea or a component that looks like a textarea.",
-        component: () => import("@/data/examples/examples-components/ComponentTextarea.vue"),
+        component: () => import("@/data/examples/examples-components/textarea/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,

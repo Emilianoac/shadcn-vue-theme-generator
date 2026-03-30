@@ -3,7 +3,5 @@ import { Textarea } from "@/components/ui/textarea";
 </script>
 
 <template>
-  <div class="mx-auto max-w-150">
-    <Textarea placeholder="Type your message here." />
-  </div>
+  <Textarea placeholder="Type your message here." data-component-x-ray-trigger="Textarea" />
 </template>
