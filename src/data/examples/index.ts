@@ -595,7 +595,7 @@ const examples = {
         name: "Tabs",
         description:
           "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-        component: () => import("@/data/examples/examples-components/ComponentTabs.vue"),
+        component: () => import("@/data/examples/examples-components/tabs/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
