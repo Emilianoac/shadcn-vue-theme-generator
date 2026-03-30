@@ -1,0 +1,1 @@
+import{_ as e}from"./Textarea.vue_vue_type_script_setup_true_lang-CiSsEI1d.js";import{d as a,o,z as s,D as t,u as r}from"./DialogTitle.vue_vue_type_script_setup_true_lang-qm1obxa6.js";const n={class:"mx-auto max-w-150"},d=a({__name:"ComponentTextarea",setup(c){return(m,_)=>(o(),s("div",n,[t(r(e),{placeholder:"Type your message here."})]))}});export{d as default};
