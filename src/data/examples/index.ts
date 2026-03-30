@@ -625,7 +625,7 @@ const examples = {
         id: "toggle",
         name: "Toggle",
         description: "A two-state button that can be either on or off.",
-        component: () => import("@/data/examples/examples-components/ComponentToggle.vue"),
+        component: () => import("@/data/examples/examples-components/toggle/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
