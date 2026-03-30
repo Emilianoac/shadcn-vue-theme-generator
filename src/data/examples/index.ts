@@ -564,7 +564,7 @@ const examples = {
         name: "Stepper",
         description:
           "A set of steps that are used to indicate progress through a multi-step process.",
-        component: () => import("@/data/examples/examples-components/ComponentStepper.vue"),
+        component: () => import("@/data/examples/examples-components/stepper/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,

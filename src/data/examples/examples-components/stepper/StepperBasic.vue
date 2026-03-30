@@ -39,15 +39,20 @@ const steps = [
 
 <template>
   <div class="flex justify-center">
-    <Stepper class="flex w-10/12 items-start gap-2">
+    <Stepper class="flex w-10/12 items-start gap-2" data-component-x-ray="Stepper">
       <StepperItem
         v-for="item in steps"
         :key="item.step"
         :step="item.step"
         class="relative flex w-full flex-col items-center justify-center"
+        data-component-x-ray-trigger="StepperItem"
       >
-        <StepperTrigger>
-          <StepperIndicator v-slot="{ step }" class="bg-muted">
+        <StepperTrigger data-component-x-ray-trigger="StepperTrigger">
+          <StepperIndicator
+            v-slot="{ step }"
+            class="bg-muted"
+            data-component-x-ray-trigger="StepperIndicator"
+          >
             <template v-if="item.icon">
               <component :is="item.icon" class="w-4 h-4" />
             </template>
@@ -57,12 +62,13 @@ const steps = [
         <StepperSeparator
           v-if="item.step !== steps[steps.length - 1]?.step"
           class="absolute left-[calc(50%+20px)] right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary"
+          data-component-x-ray="StepperSeparator"
         />
         <div class="flex flex-col items-center">
-          <StepperTitle>
+          <StepperTitle data-component-x-ray="StepperTitle">
             {{ item.title }}
           </StepperTitle>
-          <StepperDescription>
+          <StepperDescription data-component-x-ray="StepperDescription">
             {{ item.description }}
           </StepperDescription>
         </div>
