@@ -553,7 +553,7 @@ const examples = {
         id: "spinner",
         name: "Spinner",
         description: "An indicator that can be used to show a loading state.",
-        component: () => import("@/data/examples/examples-components/ComponentSpinner.vue"),
+        component: () => import("@/data/examples/examples-components/spinner/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
