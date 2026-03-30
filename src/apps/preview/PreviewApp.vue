@@ -6,7 +6,7 @@ import type { AppSyncMessage } from "./usePreviewSync";
 import { usePreviewBridge } from "./usePreviewBridge";
 import "vue-sonner/style.css";
 import { Toaster } from "@/components/ui/sonner";
-
+import { ScrollArea } from "@/components/ui/scroll-area";
 import ComponentXRay from "@/components/global/component-xray/ComponentXRay.vue";
 import { useComponentXRay } from "@/composables/useComponentXRay";
 
@@ -80,28 +80,30 @@ watch(activeExample, async () => {
 </script>
 
 <template>
-  <ComponentXRay />
-  <div
-    v-if="activeExample && AsyncRender"
-    class="w-full min-h-screen flex items-start justify-center p-4 md:p-8 bg-background text-foreground"
-  >
+  <ScrollArea class="h-screen w-full">
+    <ComponentXRay />
     <div
-      id="examples-container"
-      class="w-full max-w-full min-h-0"
-      :class="[
-        'previewLayout' in activeExample &&
-          activeExample.previewLayout === 'full-height' &&
-          'min-h-screen',
-      ]"
+      v-if="activeExample && AsyncRender"
+      class="w-full min-h-screen flex items-start justify-center p-4 md:p-8 bg-background text-foreground"
     >
-      <KeepAlive>
-        <component :is="AsyncRender" />
-      </KeepAlive>
+      <div
+        id="examples-container"
+        class="w-full max-w-full min-h-0"
+        :class="[
+          'previewLayout' in activeExample &&
+            activeExample.previewLayout === 'full-height' &&
+            'min-h-screen',
+        ]"
+      >
+        <KeepAlive>
+          <component :is="AsyncRender" />
+        </KeepAlive>
+      </div>
+      <Toaster position="top-center" />
     </div>
-    <Toaster position="top-center" />
-  </div>
 
-  <div v-else class="flex items-center justify-center min-h-screen text-muted-foreground text-sm">
-    Component not found
-  </div>
+    <div v-else class="flex items-center justify-center min-h-screen text-muted-foreground text-sm">
+      Component not found
+    </div>
+  </ScrollArea>
 </template>
