@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/components/ui/chart";
+import { ref } from "vue";
 import { VisStackedBar, VisXYContainer } from "@unovis/vue";
 import { Minus, Plus } from "lucide-vue-next";
-import { ref } from "vue";
+import { ChartContainer } from "@/components/ui/chart";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,11 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartContainer } from "@/components/ui/chart";
-
-defineOptions({
-  name: "CardActivityGoal",
-});
 
 const goal = ref(350);
 
@@ -46,12 +42,14 @@ const chartConfig = {
 </script>
 
 <template>
-  <Card class="h-full gap-5">
-    <CardHeader>
-      <CardTitle>Move Goal</CardTitle>
-      <CardDescription>Set your daily activity goal.</CardDescription>
+  <Card data-component-x-ray="Card">
+    <CardHeader data-component-x-ray="CardHeader">
+      <CardTitle data-component-x-ray="CardTitle">Move Goal</CardTitle>
+      <CardDescription data-component-x-ray="CardDescription">
+        Set your daily activity goal.
+      </CardDescription>
     </CardHeader>
-    <CardContent class="flex flex-1 flex-col">
+    <CardContent class="flex flex-1 flex-col" data-component-x-ray="CardContent">
       <div class="flex items-center justify-center gap-4">
         <Button
           variant="outline"
@@ -59,9 +57,10 @@ const chartConfig = {
           class="size-7 rounded-full"
           :disabled="goal <= 200"
           @click="goal -= 10"
+          aria-label="Decrease"
+          data-component-x-ray-trigger="Button"
         >
           <Minus />
-          <span class="sr-only">Decrease</span>
         </Button>
         <div class="text-center">
           <div class="text-4xl font-bold tracking-tighter tabular-nums">
@@ -75,14 +74,19 @@ const chartConfig = {
           class="size-7 rounded-full"
           :disabled="goal >= 400"
           @click="goal += 10"
+          aria-label="Increase"
+          data-component-x-ray-trigger="Button"
         >
           <Plus />
-          <span class="sr-only">Increase</span>
         </Button>
       </div>
 
       <div class="flex-1">
-        <ChartContainer :config="chartConfig" class="aspect-auto h-17.5 w-full">
+        <ChartContainer
+          :config="chartConfig"
+          class="aspect-auto h-17.5 w-full"
+          data-component-x-ray="ChartContainer"
+        >
           <VisXYContainer :data="data">
             <VisStackedBar
               :x="(d: Data, i: number) => i"
@@ -95,8 +99,10 @@ const chartConfig = {
         </ChartContainer>
       </div>
     </CardContent>
-    <CardFooter>
-      <Button class="w-full" variant="secondary"> Set Goal </Button>
+    <CardFooter data-component-x-ray="CardFooter">
+      <Button class="w-full" variant="secondary" data-component-x-ray-trigger="Button">
+        Set Goal
+      </Button>
     </CardFooter>
   </Card>
 </template>

@@ -40,19 +40,25 @@ const x = (d: Data) => d.day;
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>Exercise Minutes</CardTitle>
-      <CardDescription>
+  <Card data-component-x-ray="Card">
+    <CardHeader data-component-x-ray="CardHeader">
+      <CardTitle data-component-x-ray="CardTitle">Exercise Minutes</CardTitle>
+      <CardDescription data-component-x-ray="CardDescription">
         Your exercise minutes are ahead of where you normally are.
       </CardDescription>
     </CardHeader>
-    <CardContent>
-      <ChartContainer :config="chartConfig" class="w-full md:h-50" cursor>
+    <CardContent data-component-x-ray="CardContent">
+      <ChartContainer
+        :config="chartConfig"
+        class="w-full md:h-50"
+        cursor
+        data-component-x-ray="ChartContainer"
+      >
         <VisXYContainer
           :data="data"
           :margin="{ top: 5, right: 10, left: 10, bottom: 0 }"
           :y-domain="[0, 1000]"
+          data-component-x-ray="VisXYContainer"
         >
           <VisAxis
             type="x"
@@ -66,6 +72,7 @@ const x = (d: Data) => d.day;
                 return data[index]?.dayLabel.slice(0, 3);
               }
             "
+            data-component-x-ray="VisAxis-x"
           />
           <VisAxis
             type="y"
@@ -77,13 +84,20 @@ const x = (d: Data) => d.day;
                 return '';
               }
             "
+            data-component-x-ray="VisAxis-y"
           />
-          <VisLine :x="x" :y="(d: Data) => d.today" color="var(--color-today)" />
+          <VisLine
+            :x="x"
+            :y="(d: Data) => d.today"
+            color="var(--color-today)"
+            data-component-x-ray="VisLine"
+          />
           <VisLine
             :x="x"
             :y="(d: Data) => d.average"
             color="var(--color-average)"
             :attributes="{ [Line.selectors.linePath]: { opacity: 0.5 } }"
+            data-component-x-ray="VisLine"
           />
           <VisScatter
             :x="x"
@@ -91,6 +105,7 @@ const x = (d: Data) => d.day;
             :size="8"
             :stroke-width="2"
             color="var(--color-today)"
+            data-component-x-ray="VisScatter"
           />
           <VisScatter
             :x="x"
@@ -99,6 +114,7 @@ const x = (d: Data) => d.day;
             :stroke-width="2"
             color="var(--color-average)"
             :attributes="{ [Scatter.selectors.point]: { opacity: 0.5 } }"
+            data-component-x-ray="VisScatter"
           />
 
           <VisTooltip />
@@ -107,6 +123,7 @@ const x = (d: Data) => d.day;
             :template="
               componentToString(chartConfig, ChartTooltipContent, { labelKey: 'dayLabel' })
             "
+            data-component-x-ray="VisCrosshair"
           />
         </VisXYContainer>
       </ChartContainer>

@@ -28,8 +28,7 @@ function copy(id: string) {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" class="h-8 w-8 p-0">
-        <span class="sr-only">Open menu</span>
+      <Button variant="ghost" class="h-8 w-8 p-0" aria-label="Open menu">
         <MoreHorizontal class="h-4 w-4" />
       </Button>
     </DropdownMenuTrigger>

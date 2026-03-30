@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/components/ui/chart";
-
 import { VisArea, VisLine, VisScatter, VisXYContainer } from "@unovis/vue";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ChartContainer } from "@/components/ui/chart";
-
-defineOptions({
-  name: "CardStats",
-});
 
 type Data = (typeof data)[number];
 const data = [
@@ -46,15 +41,21 @@ const chartConfig = {
 </script>
 
 <template>
-  <div class="grid gap-4 grid-cols-1 @xl:grid-cols-2">
-    <Card>
-      <CardHeader>
-        <CardDescription>Total Revenue</CardDescription>
-        <CardTitle class="text-3xl">$15,231.89</CardTitle>
-        <CardDescription>+20.1% from last month</CardDescription>
+  <div class="grid gap-4 grid-cols-1 @lg:grid-cols-2">
+    <Card data-component-x-ray="Card">
+      <CardHeader data-component-x-ray="CardHeader">
+        <CardDescription data-component-x-ray="CardDescription">Total Revenue</CardDescription>
+        <CardTitle class="text-3xl" data-component-x-ray="CardTitle">$15,231.89</CardTitle>
+        <CardDescription data-component-x-ray="CardDescription">
+          +20.1% from last month
+        </CardDescription>
       </CardHeader>
-      <CardContent class="pb-0">
-        <ChartContainer :config="chartConfig" class="h-20 w-full">
+      <CardContent class="pb-0" data-component-x-ray="CardContent">
+        <ChartContainer
+          :config="chartConfig"
+          class="h-20 w-full"
+          data-component-x-ray="ChartContainer"
+        >
           <VisXYContainer
             :data="data"
             :duration="0"
@@ -64,6 +65,7 @@ const chartConfig = {
               left: 10,
               bottom: 0,
             }"
+            data-component-x-ray="VisXYContainer"
           >
             <VisLine :x="x" :y="getRevenue" color="var(--color-revenue)" />
             <VisScatter
@@ -79,17 +81,26 @@ const chartConfig = {
       </CardContent>
     </Card>
 
-    <Card class="pb-0 xl:flex">
-      <CardHeader>
-        <CardDescription>Subscriptions</CardDescription>
-        <CardTitle class="text-3xl">+2,350</CardTitle>
-        <CardDescription>+180.1% from last month</CardDescription>
-        <CardAction>
-          <Button variant="ghost" size="sm">View More</Button>
+    <Card class="pb-0 xl:flex" data-component-x-ray="Card">
+      <CardHeader data-component-x-ray="CardHeader">
+        <CardDescription data-component-x-ray="CardDescription">Subscriptions</CardDescription>
+        <CardTitle class="text-3xl" data-component-x-ray="CardTitle">+2,350</CardTitle>
+        <CardDescription data-component-x-ray="CardDescription">
+          +180.1% from last month
+        </CardDescription>
+        <CardAction data-component-x-ray="CardAction">
+          <Button variant="ghost" size="sm" data-component-x-ray-trigger="Button">View More</Button>
         </CardAction>
       </CardHeader>
-      <CardContent class="mt-auto max-h-31 flex-1 p-0 overflow-hidden">
-        <ChartContainer :config="chartConfig" class="size-full">
+      <CardContent
+        class="mt-auto max-h-31 flex-1 p-0 overflow-hidden"
+        data-component-x-ray="CardContent"
+      >
+        <ChartContainer
+          :config="chartConfig"
+          class="size-full"
+          data-component-x-ray="ChartContainer"
+        >
           <VisXYContainer
             :margin="{
               left: 0,

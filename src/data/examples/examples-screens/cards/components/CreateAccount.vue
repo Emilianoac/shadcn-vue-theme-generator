@@ -13,14 +13,16 @@ import { Label } from "@/components/ui/label";
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle class="text-2xl"> Create an account </CardTitle>
-      <CardDescription> Enter your email below to create your account </CardDescription>
+  <Card data-component-x-ray="Card">
+    <CardHeader data-component-x-ray="CardHeader">
+      <CardTitle class="text-2xl" data-component-x-ray="CardTitle"> Create an account </CardTitle>
+      <CardDescription data-component-x-ray="CardDescription">
+        Enter your email below to create your account
+      </CardDescription>
     </CardHeader>
-    <CardContent class="flex flex-col gap-4">
+    <CardContent class="flex flex-col gap-4" data-component-x-ray="CardContent">
       <div class="grid grid-cols-2 gap-6">
-        <Button variant="outline">
+        <Button variant="outline" data-component-x-ray-trigger="Button">
           <svg viewBox="0 0 438.549 438.549">
             <path
               fill="currentColor"
@@ -29,7 +31,7 @@ import { Label } from "@/components/ui/label";
           </svg>
           GitHub
         </Button>
-        <Button variant="outline">
+        <Button variant="outline" data-component-x-ray-trigger="Button">
           <svg role="img" viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -48,16 +50,21 @@ import { Label } from "@/components/ui/label";
         </div>
       </div>
       <div class="flex flex-col gap-3">
-        <Label for="email-create-account">Email</Label>
-        <Input id="email-create-account" type="email" placeholder="m@example.com" />
+        <Label for="email-create-account" data-component-x-ray="Label">Email</Label>
+        <Input
+          id="email-create-account"
+          type="email"
+          placeholder="m@example.com"
+          data-component-x-ray-trigger="Input"
+        />
       </div>
       <div class="flex flex-col gap-3">
-        <Label for="password-create-account">Password</Label>
-        <Input id="password-create-account" type="password" />
+        <Label for="password-create-account" data-component-x-ray-trigger="Label">Password</Label>
+        <Input id="password-create-account" type="password" data-component-x-ray-trigger="Input" />
       </div>
     </CardContent>
-    <CardFooter>
-      <Button class="w-full"> Create account </Button>
+    <CardFooter data-component-x-ray="CardFooter">
+      <Button class="w-full" data-component-x-ray-trigger="Button"> Create account </Button>
     </CardFooter>
   </Card>
 </template>

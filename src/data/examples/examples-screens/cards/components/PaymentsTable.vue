@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { h, ref, defineComponent } from "vue";
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-vue-next";
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -13,21 +15,15 @@ import {
   getSortedRowModel,
   useVueTable,
 } from "@tanstack/vue-table";
-import { ArrowUpDown, ChevronDown } from "lucide-vue-next";
-import { h, ref } from "vue";
-
-import DropdownAction from "./DataTableColumn.vue";
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -37,6 +33,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { valueUpdater } from "@/components/ui/table/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 
 export interface Payment {
   id: string;
@@ -44,10 +44,6 @@ export interface Payment {
   status: "pending" | "processing" | "success" | "failed";
   email: string;
 }
-
-defineOptions({
-  name: "CardPayments",
-});
 
 const data: Payment[] = [
   {
@@ -82,6 +78,112 @@ const data: Payment[] = [
   },
 ];
 
+// This component is defined here for demo purposes, but in a real app it would likely be defined in its own file.
+const ActionMenuComponent = defineComponent({
+  name: "ActionMenuComponent",
+
+  props: {
+    payment: {
+      type: Object as () => { id: string },
+      required: true,
+    },
+  },
+
+  emits: ["expand"],
+
+  setup(props, { emit }) {
+    function copy(id: string) {
+      navigator.clipboard.writeText(id);
+    }
+
+    return () =>
+      h(
+        DropdownMenu,
+        {},
+        {
+          default: () => [
+            h(
+              DropdownMenuTrigger,
+              { asChild: true },
+              {
+                default: () =>
+                  h(
+                    Button,
+                    {
+                      "variant": "ghost",
+                      "class": "h-8 w-8 p-0",
+                      "aria-label": "Open menu",
+                      "data-component-x-ray-trigger": "Button",
+                    },
+                    {
+                      default: () => h(MoreHorizontal, { class: "h-4 w-4" }),
+                    },
+                  ),
+              },
+            ),
+
+            h(
+              DropdownMenuContent,
+              {
+                "align": "end",
+                "data-component-x-ray": "DropdownMenuContent",
+              },
+              {
+                default: () => [
+                  h(
+                    DropdownMenuLabel,
+                    {
+                      "data-component-x-ray": "DropdownMenuLabel",
+                      "class": "text-xs text-muted-foreground",
+                    },
+                    () => "Actions",
+                  ),
+
+                  h(
+                    DropdownMenuItem,
+                    {
+                      "onClick": () => copy(props.payment.id),
+                      "data-component-x-ray-trigger": "DropdownMenuItem",
+                    },
+                    () => "Copy payment ID",
+                  ),
+
+                  h(
+                    DropdownMenuItem,
+                    {
+                      "onClick": () => emit("expand"),
+                      "data-component-x-ray-trigger": "DropdownMenuItem",
+                    },
+                    () => "Expand",
+                  ),
+
+                  h(DropdownMenuSeparator, {
+                    "data-component-x-ray": "DropdownMenuSeparator",
+                  }),
+
+                  h(
+                    DropdownMenuItem,
+                    {
+                      "data-component-x-ray-trigger": "DropdownMenuItem",
+                    },
+                    () => "View customer",
+                  ),
+                  h(
+                    DropdownMenuItem,
+                    {
+                      "data-component-x-ray-trigger": "DropdownMenuItem",
+                    },
+                    () => "View payment details",
+                  ),
+                ],
+              },
+            ),
+          ],
+        },
+      );
+  },
+});
+
 const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
@@ -92,12 +194,14 @@ const columns: ColumnDef<Payment>[] = [
           (table.getIsSomePageRowsSelected() && "indeterminate"),
         "onUpdate:modelValue": (value) => table.toggleAllPageRowsSelected(!!value),
         "ariaLabel": "Select all",
+        "data-component-x-ray-trigger": "Checkbox",
       }),
     cell: ({ row }) =>
       h(Checkbox, {
         "modelValue": row.getIsSelected(),
         "onUpdate:modelValue": (value) => row.toggleSelected(!!value),
         "ariaLabel": "Select row",
+        "data-component-x-ray-trigger": "Checkbox",
       }),
     enableSorting: false,
     enableHiding: false,
@@ -113,8 +217,9 @@ const columns: ColumnDef<Payment>[] = [
       return h(
         Button,
         {
-          variant: "ghost",
-          onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+          "variant": "ghost",
+          "onClick": () => column.toggleSorting(column.getIsSorted() === "asc"),
+          "data-component-x-ray-trigger": "Button",
         },
         () => ["Email", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })],
       );
@@ -142,7 +247,7 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       const payment = row.original;
 
-      return h(DropdownAction, {
+      return h(ActionMenuComponent, {
         payment,
       });
     },
@@ -183,12 +288,14 @@ const table = useVueTable({
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>Payments</CardTitle>
-      <CardDescription>Manage your payments.</CardDescription>
+  <Card data-component-x-ray="Card">
+    <CardHeader data-component-x-ray="CardHeader">
+      <CardTitle data-component-x-ray="CardTitle">Payments</CardTitle>
+      <CardDescription data-component-x-ray="CardDescription">
+        Manage your payments.
+      </CardDescription>
     </CardHeader>
-    <CardContent>
+    <CardContent data-component-x-ray="CardContent">
       <div class="w-full">
         <div class="mb-4 flex items-center gap-4">
           <Input
@@ -196,14 +303,15 @@ const table = useVueTable({
             placeholder="Filter emails..."
             :model-value="table.getColumn('email')?.getFilterValue() as string"
             @update:model-value="table.getColumn('email')?.setFilterValue($event)"
+            data-component-x-ray-trigger="Input"
           />
-          <DropdownMenu>
+          <DropdownMenu data-component-x-ray="DropdownMenu">
             <DropdownMenuTrigger as-child>
-              <Button variant="outline" class="ml-auto">
+              <Button variant="outline" class="ml-auto" data-component-x-ray-trigger="Button">
                 Columns <ChevronDown class="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" data-component-x-ray="DropdownMenuContent">
               <DropdownMenuCheckboxItem
                 v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
                 :key="column.id"
@@ -214,6 +322,7 @@ const table = useVueTable({
                     column.toggleVisibility(!!value);
                   }
                 "
+                data-component-x-ray-trigger="DropdownMenuCheckboxItem"
               >
                 {{ column.id }}
               </DropdownMenuCheckboxItem>
@@ -221,41 +330,57 @@ const table = useVueTable({
           </DropdownMenu>
         </div>
         <div class="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+          <Table data-component-x-ray="Table">
+            <TableHeader data-component-x-ray="TableHeader">
+              <TableRow
+                v-for="headerGroup in table.getHeaderGroups()"
+                :key="headerGroup.id"
+                data-component-x-ray="TableRow"
+              >
                 <TableHead
                   v-for="header in headerGroup.headers"
                   :key="header.id"
                   class="[&:has([role=checkbox])]:pl-3"
+                  data-component-x-ray="TableHead"
                 >
                   <FlexRender
                     v-if="!header.isPlaceholder"
                     :render="header.column.columnDef.header"
                     :props="header.getContext()"
+                    data-component-x-ray="TableHead"
                   />
                 </TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody data-component-x-ray="TableBody">
               <template v-if="table.getRowModel().rows?.length">
                 <TableRow
                   v-for="row in table.getRowModel().rows"
                   :key="row.id"
                   :data-state="row.getIsSelected() && 'selected'"
+                  data-component-x-ray="TableRow"
                 >
                   <TableCell
                     v-for="cell in row.getVisibleCells()"
                     :key="cell.id"
                     class="[&:has([role=checkbox])]:pl-3"
+                    data-component-x-ray="TableCell"
                   >
-                    <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                    <FlexRender
+                      :render="cell.column.columnDef.cell"
+                      :props="cell.getContext()"
+                      data-component-x-ray="TableCell"
+                    />
                   </TableCell>
                 </TableRow>
               </template>
 
-              <TableRow v-else>
-                <TableCell :colspan="columns.length" class="h-24 text-center">
+              <TableRow v-else data-component-x-ray="TableRow">
+                <TableCell
+                  :colspan="columns.length"
+                  class="h-24 text-center"
+                  data-component-x-ray="TableCell"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -274,6 +399,7 @@ const table = useVueTable({
               size="sm"
               :disabled="!table.getCanPreviousPage()"
               @click="table.previousPage()"
+              data-component-x-ray-trigger="Button"
             >
               Previous
             </Button>
@@ -282,6 +408,7 @@ const table = useVueTable({
               size="sm"
               :disabled="!table.getCanNextPage()"
               @click="table.nextPage()"
+              data-component-x-ray-trigger="Button"
             >
               Next
             </Button>

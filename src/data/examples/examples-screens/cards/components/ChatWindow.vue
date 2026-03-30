@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Check, Plus, Send } from "lucide-vue-next";
 import { computed, ref } from "vue";
+import { Check, Plus, Send } from "lucide-vue-next";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -23,10 +23,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-
-defineOptions({
-  name: "CardChart",
-});
 
 const input = ref("");
 const inputLength = computed(() => input.value.trim().length);
@@ -69,15 +65,39 @@ const messages = ref([
 
 const open = ref(false);
 const selectedUsers = ref<User[]>([]);
+
+function handleSendMessage() {
+  if (inputLength.value === 0) return;
+  messages.value.push({
+    role: "user",
+    content: input.value,
+  });
+  input.value = "";
+
+  // Simulate agent response
+  setTimeout(() => {
+    messages.value.push({
+      role: "agent",
+      content: "I'm sorry to hear that. Let's see what we can do to fix this.",
+    });
+  }, 1000);
+}
 </script>
 
 <template>
-  <Card>
-    <CardHeader class="flex flex-row items-center justify-between">
+  <Card class="max-w-100" data-component-x-ray="Card">
+    <CardHeader
+      class="flex flex-row items-center justify-between"
+      data-component-x-ray="CardHeader"
+    >
       <div class="flex items-center space-x-4">
-        <Avatar>
-          <AvatarImage src="/avatars/01.png" alt="Image" />
-          <AvatarFallback>S</AvatarFallback>
+        <Avatar data-component-x-ray="Avatar">
+          <AvatarImage
+            src="/avatars/01.png"
+            alt="Image"
+            data-component-x-ray-trigger="AvatarImage"
+          />
+          <AvatarFallback data-component-x-ray="AvatarFallback">S</AvatarFallback>
         </Avatar>
         <div>
           <p class="text-sm font-medium leading-none">Sofia Davis</p>
@@ -91,6 +111,7 @@ const selectedUsers = ref<User[]>([]);
               variant="outline"
               class="rounded-full p-2.5 flex items-center justify-center"
               @click="open = true"
+              data-component-x-ray-trigger="Button"
             >
               <Plus class="w-4 h-4" />
             </Button>
@@ -99,7 +120,7 @@ const selectedUsers = ref<User[]>([]);
         </Tooltip>
       </TooltipProvider>
     </CardHeader>
-    <CardContent>
+    <CardContent data-component-x-ray="CardContent">
       <div class="space-y-4">
         <div
           v-for="(message, index) in messages"
@@ -115,42 +136,39 @@ const selectedUsers = ref<User[]>([]);
         </div>
       </div>
     </CardContent>
-    <CardFooter>
-      <form
-        class="flex w-full items-center space-x-2"
-        @submit.prevent="
-          () => {
-            if (inputLength === 0) return;
-            messages.push({
-              role: 'user',
-              content: input,
-            });
-            input = '';
-          }
-        "
-      >
-        <Input v-model="input" placeholder="Type a message..." class="flex-1" />
-        <Button class="p-2.5 flex items-center justify-center" :disabled="inputLength === 0">
+    <CardFooter data-component-x-ray="CardFooter">
+      <form class="flex w-full items-center space-x-2" @submit.prevent="handleSendMessage()">
+        <Input
+          v-model="input"
+          placeholder="Type a message..."
+          class="flex-1"
+          data-component-x-ray-trigger="Input"
+        />
+        <Button
+          class="p-2.5 flex items-center justify-center"
+          :disabled="inputLength === 0"
+          aria-label="Send message"
+          data-component-x-ray-trigger="Button"
+        >
           <Send class="w-4 h-4" />
-          <span class="sr-only">Send</span>
         </Button>
       </form>
     </CardFooter>
   </Card>
 
-  <Dialog v-model:open="open">
-    <DialogContent class="gap-0 p-0 outline-none">
-      <DialogHeader class="px-4 pb-4 pt-5">
-        <DialogTitle>New message</DialogTitle>
-        <DialogDescription>
+  <Dialog v-model:open="open" data-component-x-ray="Dialog">
+    <DialogContent class="gap-0 p-0 outline-none" data-component-x-ray="DialogContent">
+      <DialogHeader class="px-4 pb-4 pt-5" data-component-x-ray="DialogHeader">
+        <DialogTitle data-component-x-ray="DialogTitle">New message</DialogTitle>
+        <DialogDescription data-component-x-ray="DialogDescription">
           Invite a user to this thread. This will create a new group message.
         </DialogDescription>
       </DialogHeader>
-      <Command class="overflow-hidden rounded-t-none border-t">
-        <CommandInput placeholder="Search user..." />
-        <CommandList>
-          <CommandEmpty>No users found.</CommandEmpty>
-          <CommandGroup class="p-2">
+      <Command class="overflow-hidden rounded-t-none border-t" data-component-x-ray="Command">
+        <CommandInput placeholder="Search user..." data-component-x-ray-trigger="CommandInput" />
+        <CommandList data-component-x-ray="CommandList">
+          <CommandEmpty data-component-x-ray="CommandEmpty">No users found.</CommandEmpty>
+          <CommandGroup class="p-2" data-component-x-ray="CommandGroup">
             <CommandItem
               v-for="user in users"
               :key="user.email"
@@ -166,10 +184,17 @@ const selectedUsers = ref<User[]>([]);
                   }
                 }
               "
+              data-component-x-ray-trigger="CommandItem"
             >
-              <Avatar>
-                <AvatarImage :src="user.avatar" alt="Image" />
-                <AvatarFallback>{{ user.name[0] }}</AvatarFallback>
+              <Avatar data-component-x-ray-trigger="Avatar">
+                <AvatarImage
+                  :src="user.avatar"
+                  alt="Image"
+                  data-component-x-ray-trigger="AvatarImage"
+                />
+                <AvatarFallback data-component-x-ray-trigger="AvatarFallback">{{
+                  user.name[0]
+                }}</AvatarFallback>
               </Avatar>
               <div class="ml-2">
                 <p class="text-sm font-medium leading-none">
@@ -187,21 +212,33 @@ const selectedUsers = ref<User[]>([]);
           </CommandGroup>
         </CommandList>
       </Command>
-      <DialogFooter class="flex items-center border-t p-4 sm:justify-between">
+      <DialogFooter
+        class="flex items-center border-t p-4 sm:justify-between"
+        data-component-x-ray="DialogFooter"
+      >
         <div v-if="selectedUsers.length > 0" class="flex -space-x-2 overflow-hidden">
           <Avatar
             v-for="user in selectedUsers"
             :key="user.email"
             class="inline-block border-2 border-background"
+            data-component-x-ray="Avatar"
           >
-            <AvatarImage :src="user.avatar" />
-            <AvatarFallback>{{ user.name[0] }}</AvatarFallback>
+            <AvatarImage :src="user.avatar" data-component-x-ray="AvatarImage" />
+            <AvatarFallback data-component-x-ray="AvatarFallback">{{
+              user.name[0]
+            }}</AvatarFallback>
           </Avatar>
         </div>
 
         <p v-else class="text-sm text-muted-foreground">Select users to add to this thread.</p>
 
-        <Button :disabled="selectedUsers.length < 2" @click="open = false"> Continue </Button>
+        <Button
+          :disabled="selectedUsers.length < 2"
+          @click="open = false"
+          data-component-x-ray-trigger="Button"
+        >
+          Continue
+        </Button>
       </DialogFooter>
     </DialogContent>
   </Dialog>

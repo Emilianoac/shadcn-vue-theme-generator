@@ -19,9 +19,13 @@ const dateRange = ref({
 </script>
 
 <template>
-  <Card class="hidden p-0">
-    <CardContent class="p-0">
-      <RangeCalendar v-model="dateRange" disable-days-outside-current-view />
+  <Card class="p-0 w-fit" data-component-x-ray="Card">
+    <CardContent class="p-0" data-component-x-ray="CardContent">
+      <RangeCalendar
+        v-model="dateRange"
+        disable-days-outside-current-view
+        data-component-x-ray="RangeCalendar"
+      />
     </CardContent>
   </Card>
 </template>
