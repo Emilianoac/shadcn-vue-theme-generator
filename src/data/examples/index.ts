@@ -574,7 +574,7 @@ const examples = {
         id: "switch",
         name: "Switch",
         description: "A control that allows the user to toggle between checked and not checked.",
-        component: () => import("@/data/examples/examples-components/ComponentSwitch.vue"),
+        component: () => import("@/data/examples/examples-components/switch/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
