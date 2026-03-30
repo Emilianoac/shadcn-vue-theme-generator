@@ -26,7 +26,7 @@ const COLOR_GROUPS = [
       { label: "Primary Foreground", key: "primary-foreground" },
     ],
     contrastPair: { background: "primary", foreground: "primary-foreground" },
-    isOpenByDefault: true,
+    isOpenByDefault: false,
   },
   {
     id: "secondary",
@@ -36,7 +36,7 @@ const COLOR_GROUPS = [
       { label: "Secondary Foreground", key: "secondary-foreground" },
     ],
     contrastPair: { background: "secondary", foreground: "secondary-foreground" },
-    isOpenByDefault: true,
+    isOpenByDefault: false,
   },
   {
     id: "accent",
