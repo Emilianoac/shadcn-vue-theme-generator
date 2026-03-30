@@ -605,7 +605,7 @@ const examples = {
         id: "tags-input",
         name: "Tags Input",
         description: "Tag inputs render tags inside an input, followed by an actual text input.",
-        component: () => import("@/data/examples/examples-components/ComponentTagsInput.vue"),
+        component: () => import("@/data/examples/examples-components/tags-input/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
