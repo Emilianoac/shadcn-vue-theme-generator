@@ -4,7 +4,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -57,33 +56,31 @@ const invoices = [
 </script>
 
 <template>
-  <Table>
-    <TableCaption>A list of your recent invoices.</TableCaption>
-    <TableHeader>
-      <TableRow>
-        <TableHead class="w-25"> Invoice </TableHead>
-        <TableHead>Status</TableHead>
-        <TableHead>Method</TableHead>
-        <TableHead class="text-right"> Amount </TableHead>
+  <Table data-component-x-ray="Table">
+    <TableCaption data-component-x-ray="TableCaption">A list of your recent invoices.</TableCaption>
+    <TableHeader data-component-x-ray="TableHeader">
+      <TableRow data-component-x-ray="TableRow">
+        <TableHead class="w-25" data-component-x-ray="TableHead"> Invoice </TableHead>
+        <TableHead data-component-x-ray="TableHead">Status</TableHead>
+        <TableHead data-component-x-ray="TableHead">Method</TableHead>
+        <TableHead class="text-right" data-component-x-ray="TableHead"> Amount </TableHead>
       </TableRow>
     </TableHeader>
-    <TableBody>
-      <TableRow v-for="invoice in invoices" :key="invoice.invoice">
-        <TableCell class="font-medium">
+    <TableBody data-component-x-ray="TableBody">
+      <TableRow
+        v-for="invoice in invoices.slice(0, 3)"
+        :key="invoice.invoice"
+        data-component-x-ray="TableRow"
+      >
+        <TableCell class="font-medium" data-component-x-ray="TableCell">
           {{ invoice.invoice }}
         </TableCell>
-        <TableCell>{{ invoice.paymentStatus }}</TableCell>
-        <TableCell>{{ invoice.paymentMethod }}</TableCell>
-        <TableCell class="text-right">
+        <TableCell data-component-x-ray="TableCell">{{ invoice.paymentStatus }}</TableCell>
+        <TableCell data-component-x-ray="TableCell">{{ invoice.paymentMethod }}</TableCell>
+        <TableCell class="text-right" data-component-x-ray="TableCell">
           {{ invoice.totalAmount }}
         </TableCell>
       </TableRow>
     </TableBody>
-    <TableFooter>
-      <TableRow>
-        <TableCell colspan="3"> Total </TableCell>
-        <TableCell class="text-right"> $2,500.00 </TableCell>
-      </TableRow>
-    </TableFooter>
   </Table>
 </template>

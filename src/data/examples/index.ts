@@ -584,7 +584,7 @@ const examples = {
         id: "table",
         name: "Table",
         description: "A responsive table component.",
-        component: () => import("@/data/examples/examples-components/ComponentTable.vue"),
+        component: () => import("@/data/examples/examples-components/table/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
