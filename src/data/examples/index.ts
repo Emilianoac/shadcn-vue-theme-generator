@@ -646,7 +646,7 @@ const examples = {
         name: "Tooltip",
         description:
           "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-        component: () => import("@/data/examples/examples-components/ComponentTooltip.vue"),
+        component: () => import("@/data/examples/examples-components/tooltip/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
