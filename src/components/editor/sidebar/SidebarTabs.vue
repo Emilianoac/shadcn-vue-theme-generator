@@ -37,7 +37,7 @@ useEditorBridge({
     :unmount-on-hide="false"
   >
     <TabsList
-      class="d-block space-x-2 bg-background p-3 justify-start rounded-none h-14 sticky top-0 z-10 border-b w-full"
+      class="block space-x-2 bg-background p-3 justify-start rounded-none h-14 sticky top-0 z-10 border-b w-full"
     >
       <TabsTrigger
         v-for="tab in tabs"
