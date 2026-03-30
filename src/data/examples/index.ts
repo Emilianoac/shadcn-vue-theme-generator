@@ -635,7 +635,7 @@ const examples = {
         id: "toggle-group",
         name: "Toggle Group",
         description: "A set of two-state buttons that can be toggled on or off.",
-        component: () => import("@/data/examples/examples-components/ComponentToggleGroup.vue"),
+        component: () => import("@/data/examples/examples-components/toggle-group/_Examples.vue"),
         previewLayout: "default",
         deprecated: false,
         visible: true,
