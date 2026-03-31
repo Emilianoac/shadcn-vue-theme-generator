@@ -347,7 +347,6 @@ const table = useVueTable({
                     v-if="!header.isPlaceholder"
                     :render="header.column.columnDef.header"
                     :props="header.getContext()"
-                    data-component-x-ray="TableHead"
                   />
                 </TableHead>
               </TableRow>
@@ -366,11 +365,7 @@ const table = useVueTable({
                     class="[&:has([role=checkbox])]:pl-3"
                     data-component-x-ray="TableCell"
                   >
-                    <FlexRender
-                      :render="cell.column.columnDef.cell"
-                      :props="cell.getContext()"
-                      data-component-x-ray="TableCell"
-                    />
+                    <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
                   </TableCell>
                 </TableRow>
               </template>
