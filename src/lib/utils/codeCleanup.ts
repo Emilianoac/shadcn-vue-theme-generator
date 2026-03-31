@@ -12,10 +12,7 @@ export function removeXRayAttributes(code: string): string {
 
     .replace(/,\s*,/g, ",")
     .replace(/,\s*}/g, "}")
-    .replace(/,\s*]/g, "]")
-
-    // remove to="#examples-container" to prevent confusion in user code, as this is only needed for the live preview environment
-    .replace(/\s*to="#examples-container"/g, "");
+    .replace(/,\s*]/g, "]");
 
   while (cleaned.includes("\n\n\n")) {
     cleaned = cleaned.replace(/\n\n\n/g, "\n\n");
