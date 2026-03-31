@@ -57,6 +57,7 @@ describe("removeXRayAttributes", () => {
   it("handles attributes without values", () => {
     const code = `<div data-component-x-ray class="test">Content</div>`;
     const result = removeXRayAttributes(code);
+    console.log(result);
     expect(result).not.toContain("data-component-x-ray");
     expect(result).toContain('class="test"');
   });

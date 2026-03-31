@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { PaletteIcon, BotIcon } from "lucide-vue-next";
 import { useEditorBridge } from "@/bridge/useEditorBridge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ControlsColor from "@/components/editor/sidebar/controls/ControlsColor.vue";
+import ControlsColor from "@/components/editor/sidebar/tabs/colors/ColorsTab.vue";
 import AutoGenerate from "@/components/editor/sidebar/tabs/auto-generate/AutoGenerate.vue";
 
 const activeTab = ref("colors");

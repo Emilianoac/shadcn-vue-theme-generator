@@ -3,8 +3,8 @@ import { computed, nextTick, ref } from "vue";
 import { useColorMode } from "@vueuse/core";
 import { useTheme } from "@/composables/useTheme";
 import { useEditorBridge } from "@/bridge/useEditorBridge";
-import ColorPickerField from "./shared/ColorPickerField.vue";
-import ContrastChecker from "./shared/ContrastChecker.vue";
+import ColorPickerField from "./ColorPickerField.vue";
+import ContrastChecker from "./ContrastChecker.vue";
 
 import {
   Accordion,

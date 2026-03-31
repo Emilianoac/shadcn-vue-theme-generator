@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import ColorPickerField from "@/components/editor/sidebar/controls/shared/ColorPickerField.vue";
+import ColorPickerField from "@/components/editor/sidebar/tabs/colors/ColorPickerField.vue";
 
 describe("ColorPickerField - Core Functionality", () => {
   it("should render with label and color picker", () => {
