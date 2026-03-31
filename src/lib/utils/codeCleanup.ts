@@ -9,6 +9,7 @@ export function removeXRayAttributes(code: string): string {
 
     // HTML attributes
     .replace(/\s*data-component-x-ray(-trigger)?="[^"]*"/g, "")
+    .replace(/\s*data-component-x-ray\s*/g, " ")
 
     .replace(/,\s*,/g, ",")
     .replace(/,\s*}/g, "}")
