@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { OklchColor, ImageThemeMode } from "@/services/theme/auto/generator.interface";
-import ImageDropzone from "./ImageDropzone.vue";
+import Dropzone from "./FromImageDropzone.vue";
 
 interface Option<T> {
   value: T;
@@ -75,7 +75,7 @@ const selectedModeDescription = computed(
       </p>
 
       <Label class="text-xs">Image Source</Label>
-      <ImageDropzone
+      <Dropzone
         :preview-url="selectedImagePreviewUrl"
         :image-name="selectedImageName"
         @image-selected="emit('imageSelected', $event)"

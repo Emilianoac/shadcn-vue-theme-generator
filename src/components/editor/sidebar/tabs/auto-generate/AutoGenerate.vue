@@ -7,14 +7,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import AutoGenerateFromBaseColor from "./AutoGenerateFromBaseColor.vue";
-import AutoGenerateOptions from "./AutoGenerateOptions.vue";
-import AutoGenerateFromImage from "./from-image/AutoGenerateFromImage.vue";
-import {
-  backgroundStyleOptions,
-  harmonyOptions,
-  imageThemeModeOptions,
-} from "./autoGenerate.constants";
+import GeneralOptions from "./GeneralOptions.vue";
+import FromBaseColor from "./FromBaseColor.vue";
+import FromImage from "./from-image/FromImage.vue";
+import { backgroundStyleOptions, harmonyOptions, imageThemeModeOptions } from "./constants";
 import { useAutoGenerate } from "./useAutoGenerate";
 
 const {
@@ -56,7 +52,7 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
           </span>
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
-          <AutoGenerateOptions
+          <GeneralOptions
             v-model:harmony="selectedHarmony"
             v-model:background-style="selectedBackgroundStyle"
             :harmony-options="harmonyOptions"
@@ -76,7 +72,7 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
           </span>
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
-          <AutoGenerateFromBaseColor
+          <FromBaseColor
             v-model:selected-color="selectedColor"
             v-model:harmony="selectedHarmony"
             :harmony-options="harmonyOptions"
@@ -99,7 +95,7 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
           </span>
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
-          <AutoGenerateFromImage
+          <FromImage
             :is-generating="isGeneratingFromImage"
             :selected-image-name="selectedImageName"
             :selected-image-preview-url="selectedImagePreviewUrl"
