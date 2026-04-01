@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import CoppyButton from "@/components/global/CoppyButton.vue";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import HighlightCode from "@/components/global/HighlightCode.vue";
 import { themeService } from "@/services/theme/themeService";
 import { useTheme } from "@/composables/useTheme";
 
@@ -20,7 +21,7 @@ const themeCode = computed(() => themeService.generateThemeCssCode(theme.value))
     </div>
 
     <ScrollArea class="h-[40vh] w-full">
-      <highlightjs language="css" :code="themeCode" />
+      <HighlightCode lang="css" :code="themeCode" />
     </ScrollArea>
   </div>
 </template>
