@@ -1,0 +1,1 @@
+import{d as o,o as n,z as r,T as t,u as l,a6 as c,a3 as p}from"./DialogTitle.vue_vue_type_script_setup_true_lang-CaMH5FGq.js";const u=o({__name:"KbdGroup",props:{class:{}},setup(s){const e=s;return(a,d)=>(n(),r("kbd",{"data-slot":"kbd-group",class:t(l(c)("inline-flex items-center gap-1",e.class))},[p(a.$slots,"default")],2))}});export{u as _};

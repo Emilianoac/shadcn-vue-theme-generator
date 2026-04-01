@@ -1,1 +1,0 @@
-import{d as n,o,z as t,T as l,u as c,a6 as r,a3 as p}from"./DialogTitle.vue_vue_type_script_setup_true_lang-DBPyUkvP.js";const i=n({__name:"FieldContent",props:{class:{}},setup(e){const s=e;return(a,d)=>(o(),t("div",{"data-slot":"field-content",class:l(c(r)("group/field-content flex flex-1 flex-col gap-1.5 leading-snug",s.class))},[p(a.$slots,"default")],2))}});export{i as _};
