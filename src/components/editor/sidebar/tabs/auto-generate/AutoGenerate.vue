@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { ImageIcon, PipetteIcon, Settings2Icon } from "lucide-vue-next";
 import {
   Accordion,
@@ -31,13 +30,11 @@ const {
   handleImageSelected,
   generateThemeFromImage,
 } = useAutoGenerate();
-
-const openItems = ref<string[]>(["generation-options", "base-color"]);
 </script>
 
 <template>
   <div>
-    <Accordion v-model="openItems" type="multiple">
+    <Accordion type="single" default-value="generation-options" collapsible>
       <AccordionItem
         value="generation-options"
         :unmount-on-hide="false"
@@ -61,7 +58,9 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
           />
         </AccordionContent>
       </AccordionItem>
+    </Accordion>
 
+    <Accordion type="single" default-value="base-color" collapsible>
       <AccordionItem value="base-color" :unmount-on-hide="false" class="border-b overflow-hidden">
         <AccordionTrigger
           class="p-4 py-3 text-xs font-semibold hover:bg-accent/30 cursor-pointer hover:no-underline rounded-none"
