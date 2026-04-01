@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { ImageIcon, PaletteIcon, Settings2Icon } from "lucide-vue-next";
+import { ImageIcon, PipetteIcon, Settings2Icon } from "lucide-vue-next";
 import {
   Accordion,
   AccordionContent,
@@ -67,8 +67,8 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
           class="p-4 py-3 text-xs font-semibold hover:bg-accent/30 cursor-pointer hover:no-underline rounded-none"
         >
           <span class="inline-flex items-center gap-2">
-            <PaletteIcon class="h-4 w-4" />
-            <span>Generate from base color</span>
+            <PipetteIcon class="h-4 w-4" />
+            <span>From base color</span>
           </span>
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
@@ -91,7 +91,7 @@ const openItems = ref<string[]>(["generation-options", "base-color"]);
         >
           <span class="inline-flex items-center gap-2">
             <ImageIcon class="h-4 w-4" />
-            <span>Generate from image</span>
+            <span>From image</span>
           </span>
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
