@@ -34,12 +34,8 @@ const {
 
 <template>
   <div>
-    <Accordion type="single" default-value="generation-options" collapsible>
-      <AccordionItem
-        value="generation-options"
-        :unmount-on-hide="false"
-        class="border-b overflow-hidden"
-      >
+    <Accordion type="single" default-value="generation-options" collapsible class="border-b">
+      <AccordionItem value="generation-options" :unmount-on-hide="false" class="overflow-hidden">
         <AccordionTrigger
           class="p-4 py-3 text-xs font-semibold hover:bg-accent/30 cursor-pointer hover:no-underline rounded-none"
         >
