@@ -18,7 +18,6 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
-    "@highlightjs/vue-plugin": "^2.1.0",
     "@internationalized/date": "^3.11.0",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/vue-table": "^8.21.3",
@@ -29,6 +28,7 @@
     "class-variance-authority": "^0.7.1",
     "culori": "^4.0.2",
     "embla-carousel-vue": "^8.6.0",
+    "highlight.js": "^11.11.1",
     "lucide-vue-next": "^0.575.0",
     "reka-ui": "^2.9.2",
     "tailwind-merge": "^3.5.0",
