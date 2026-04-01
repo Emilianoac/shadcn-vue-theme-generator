@@ -17,6 +17,14 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
 
   {
+    name: "app/vue-rules",
+    files: ["**/*.vue"],
+    rules: {
+      "vue/no-undef-components": "error",
+    },
+  },
+
+  {
     name: "app/shadcn-exceptions",
     files: ["src/components/ui/**/*.vue"],
     rules: {
