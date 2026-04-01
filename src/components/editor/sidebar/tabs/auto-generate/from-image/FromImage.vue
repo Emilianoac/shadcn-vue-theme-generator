@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { OklchColor, ImageThemeMode } from "@/services/theme/auto/generator.interface";
 import Dropzone from "./FromImageDropzone.vue";
+import FromImageExamples from "./FromImageExamples.vue";
 
 interface Option<T> {
   value: T;
@@ -52,8 +53,9 @@ const selectedModeDescription = computed(
       Generate from image
     </Label>
 
-    <div class="space-y-2">
-      <Label class="text-xs">Image Mode</Label>
+    <!-- Mode selection -->
+    <section class="space-y-2">
+      <Label class="text-xs">Mode</Label>
       <ToggleGroup
         type="single"
         :model-value="imageThemeMode"
@@ -73,7 +75,10 @@ const selectedModeDescription = computed(
       <p v-if="selectedModeDescription" class="text-xs text-muted-foreground">
         {{ selectedModeDescription }}
       </p>
+    </section>
 
+    <!-- Image selection -->
+    <section class="space-y-2">
       <Label class="text-xs">Image Source</Label>
       <Dropzone
         :preview-url="selectedImagePreviewUrl"
@@ -81,14 +86,14 @@ const selectedModeDescription = computed(
         @image-selected="emit('imageSelected', $event)"
         @clear="emit('clearImage')"
       />
-    </div>
+      <p v-if="selectedImageName" class="text-xs line-clamp-1" :title="selectedImageName">
+        File: {{ selectedImageName }}
+      </p>
+      <p v-if="isExtractingPalette" class="text-muted-foreground text-xs">Extracting palette...</p>
+    </section>
 
-    <p v-if="selectedImageName" class="text-xs line-clamp-1" :title="selectedImageName">
-      File: {{ selectedImageName }}
-    </p>
-    <p v-if="isExtractingPalette" class="text-muted-foreground text-xs">Extracting palette...</p>
-
-    <div v-if="hasPalette" class="space-y-1 pt-1">
+    <!-- Palette preview -->
+    <section v-if="hasPalette" class="space-y-1 pt-1">
       <p class="text-[11px] text-muted-foreground">Extracted palette preview</p>
       <div class="flex items-center gap-1 flex-wrap">
         <div
@@ -98,16 +103,22 @@ const selectedModeDescription = computed(
           :style="{ backgroundColor: `oklch(${color.l} ${color.c} ${color.h})` }"
         />
       </div>
-    </div>
+    </section>
 
-    <Button
-      :disabled="isGenerating || !canGenerateFromImage"
-      variant="default"
-      size="sm"
-      class="w-full"
-      @click="emit('generateFromImage')"
-    >
-      {{ isGenerating ? "Generating..." : "Generate Theme" }}
-    </Button>
+    <!-- Controls -->
+    <section>
+      <Button
+        :disabled="isGenerating || !canGenerateFromImage"
+        variant="default"
+        size="sm"
+        class="w-full"
+        @click="emit('generateFromImage')"
+      >
+        {{ isGenerating ? "Generating..." : "Generate Theme" }}
+      </Button>
+    </section>
+
+    <!-- Examples -->
+    <FromImageExamples @imageSelected="emit('imageSelected', $event)" />
   </div>
 </template>
