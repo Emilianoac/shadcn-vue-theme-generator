@@ -1,0 +1,1 @@
+import{d as t,o,e as s,H as n,a4 as p,a6 as u,u as l,an as i}from"./highlight-mgC1Gizx.js";var _=t({__name:"MenuSeparator",props:{asChild:{type:Boolean,required:!1},as:{type:null,required:!1}},setup(e){const a=e;return(r,d)=>(o(),s(l(i),u(a,{role:"separator","aria-orientation":"horizontal"}),{default:n(()=>[p(r.$slots,"default")]),_:3},16))}}),c=_;export{c as M};
