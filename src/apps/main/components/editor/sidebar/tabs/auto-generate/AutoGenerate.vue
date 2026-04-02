@@ -46,9 +46,7 @@ const {
         </AccordionTrigger>
         <AccordionContent class="pt-2 pb-6 px-4">
           <GeneralOptions
-            v-model:harmony="selectedHarmony"
             v-model:background-style="selectedBackgroundStyle"
-            :harmony-options="harmonyOptions"
             :background-style-options="backgroundStyleOptions"
             :show-title="false"
           />
