@@ -1,7 +1,7 @@
 import { watch } from "vue";
-import { useTheme } from "@/composables/useTheme";
+import { useTheme } from "@/shared/composables/useTheme";
 import { useDark } from "@vueuse/core";
-import { useComponentXRay } from "@/composables/useComponentXRay";
+import { useComponentXRay } from "@/shared/composables/useComponentXRay";
 
 export type AppSyncMessage = {
   type: "APP_SYNC";

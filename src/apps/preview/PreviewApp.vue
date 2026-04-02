@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, defineAsyncComponent, watch, nextTick } from "vue";
-import examples from "@/data/examples";
-import { objectToCssVariables } from "@/services/theme/themeCode.utils";
+import examples from "@/shared/data/examples";
+import { objectToCssVariables } from "@/shared/services/theme/themeCode.utils";
 import type { AppSyncMessage } from "./usePreviewSync";
 import { usePreviewBridge } from "./usePreviewBridge";
 import "vue-sonner/style.css";
-import { Toaster } from "@/components/ui/sonner";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import ComponentXRay from "@/components/global/component-xray/ComponentXRay.vue";
-import { useComponentXRay } from "@/composables/useComponentXRay";
+import { Toaster } from "@/shared/components/ui/sonner";
+import { ScrollArea } from "@/shared/components/ui/scroll-area";
+import ComponentXRay from "@/apps/preview/components/component-xray/ComponentXRay.vue";
+import { useComponentXRay } from "@/shared/composables/useComponentXRay";
 
 const { activate, deactivate, isActive } = useComponentXRay();
 
