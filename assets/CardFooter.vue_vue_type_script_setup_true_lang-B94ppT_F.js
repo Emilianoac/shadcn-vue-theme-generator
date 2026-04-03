@@ -1,1 +1,0 @@
-import{d as o,o as r,z as t,T as n,u as c,a7 as l,a4 as p}from"./highlight-DV_B57Hj.js";const f=o({__name:"CardFooter",props:{class:{}},setup(e){const s=e;return(a,d)=>(r(),t("div",{"data-slot":"card-footer",class:n(c(l)("flex items-center px-6 [.border-t]:pt-6",s.class))},[p(a.$slots,"default")],2))}});export{f as _};

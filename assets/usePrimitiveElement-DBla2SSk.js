@@ -1,0 +1,1 @@
+import{c as n,b as m,a_ as i}from"./highlight-DXRdThM2.js";function r(){const e=m(),t=n(()=>["#text","#comment"].includes(e.value?.$el.nodeName)?e.value?.$el.nextElementSibling:i(e));return{primitiveElement:e,currentElement:t}}export{r as u};
