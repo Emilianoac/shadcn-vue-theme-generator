@@ -1,0 +1,1 @@
+import{d as n,o,z as t,T as l,u as c,a7 as r,a4 as p}from"./highlight-DV_B57Hj.js";const i=n({__name:"FieldContent",props:{class:{}},setup(e){const s=e;return(a,d)=>(o(),t("div",{"data-slot":"field-content",class:l(c(r)("group/field-content flex flex-1 flex-col gap-1.5 leading-snug",s.class))},[p(a.$slots,"default")],2))}});export{i as _};
