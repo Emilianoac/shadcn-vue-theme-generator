@@ -47,7 +47,9 @@ const {
         <AccordionContent class="pt-2 pb-6 px-4">
           <GeneralOptions
             v-model:background-style="selectedBackgroundStyle"
+            v-model:harmony="selectedHarmony"
             :background-style-options="backgroundStyleOptions"
+            :harmony-options="harmonyOptions"
             :show-title="false"
           />
         </AccordionContent>
@@ -67,8 +69,6 @@ const {
         <AccordionContent class="pt-2 pb-6 px-4">
           <FromBaseColor
             v-model:selected-color="selectedColor"
-            v-model:harmony="selectedHarmony"
-            :harmony-options="harmonyOptions"
             :is-generating="isGeneratingFromColor"
             :has-base-color="Boolean(selectedColor)"
             :show-title="false"
