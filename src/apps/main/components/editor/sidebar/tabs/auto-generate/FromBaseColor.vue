@@ -1,35 +1,37 @@
 <script setup lang="ts">
 import { ref, watch, computed } from "vue";
-import { Shuffle } from "lucide-vue-next";
-import { PaletteIcon } from "lucide-vue-next";
+import { ShuffleIcon, PaletteIcon } from "lucide-vue-next";
 import type { ColorHarmony } from "@/shared/services/theme/auto/generator.interface";
-import { Select, SelectContent, SelectItem, SelectTrigger } from "@/shared/components/ui/select";
+import type { HarmonyOption } from "./constants";
+import { colorToHexForInput } from "@/shared/services/theme/themeColor.utils";
 import { Label } from "@/shared/components/ui/label";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
+import { Item, ItemContent, ItemDescription, ItemTitle } from "@/shared/components/ui/item";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectSeparator,
+  SelectValue,
+} from "@/shared/components/ui/select";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
   TooltipProvider,
 } from "@/shared/components/ui/tooltip";
-import { colorToHexForInput } from "@/shared/services/theme/themeColor.utils";
 
 const selectedColor = defineModel<string>("selected-color", { required: true });
 const harmonyModel = defineModel<ColorHarmony>("harmony", { required: true });
 const swatchHex = ref("#000000");
 
-interface Option<T> {
-  value: T;
-  label: string;
-  description: string;
-}
-
 const props = withDefaults(
   defineProps<{
     isGenerating: boolean;
     hasBaseColor: boolean;
-    harmonyOptions: Option<ColorHarmony>[];
+    harmonyOptions: HarmonyOption<ColorHarmony>[];
 
     showTitle?: boolean;
   }>(),
@@ -45,7 +47,9 @@ const emit = defineEmits<{
 }>();
 
 const selectedHarmonyOption = computed(() =>
-  props.harmonyOptions.find((option: Option<ColorHarmony>) => option.value === harmonyModel.value),
+  props.harmonyOptions.find(
+    (option: HarmonyOption<ColorHarmony>) => option.value === harmonyModel.value,
+  ),
 );
 
 watch(
@@ -96,15 +100,38 @@ function updateFromSwatch(event: Event) {
         <Label class="text-xs">Color Harmony</Label>
         <Select v-model="harmonyModel">
           <SelectTrigger class="w-full" size="sm">
-            {{ selectedHarmonyOption ? selectedHarmonyOption.label : "Select a harmony" }}
+            <SelectValue placeholder="Select a harmony">
+              <Item v-if="selectedHarmonyOption" size="sm" class="w-full p-0">
+                <ItemContent class="gap-0">
+                  <ItemTitle>{{ selectedHarmonyOption.label }}</ItemTitle>
+                </ItemContent>
+              </Item>
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem v-for="option in harmonyOptions" :key="option.value" :value="option.value">
-              <div>
-                <p>{{ option.label }}</p>
-                <p class="text-xs text-muted-foreground">{{ option.description }}</p>
-              </div>
-            </SelectItem>
+            <template v-for="option in harmonyOptions" :key="option.value">
+              <SelectItem :value="option.value">
+                <Item size="sm" class="w-full p-0">
+                  <ItemContent class="gap-1">
+                    <div>
+                      <ItemTitle class="text-xs font-semibold">{{ option.label }}</ItemTitle>
+                      <ItemDescription class="text-xs">
+                        {{ option.description }}
+                      </ItemDescription>
+                    </div>
+                    <div class="flex gap-1">
+                      <div
+                        v-for="color in option.example"
+                        :key="color"
+                        class="h-2.5 w-2.5 rounded-xs"
+                        :style="{ backgroundColor: color }"
+                      ></div>
+                    </div>
+                  </ItemContent>
+                </Item>
+              </SelectItem>
+              <SelectSeparator />
+            </template>
           </SelectContent>
         </Select>
       </div>
@@ -123,7 +150,7 @@ function updateFromSwatch(event: Event) {
           <Tooltip>
             <TooltipTrigger class="w-max">
               <Button @click="emit('random')" :disabled="isGenerating" variant="outline" size="sm">
-                <Shuffle class="h-4 w-4" />
+                <ShuffleIcon class="h-4 w-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
