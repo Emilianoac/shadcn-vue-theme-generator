@@ -28,9 +28,9 @@ import { Input } from "@/shared/components/ui/input";
             updated immediately.
           </DialogDescription>
         </DialogHeader>
-        <FieldGroup data-component-x-ray-field="FieldGroup">
-          <Field data-component-x-ray-field="Field">
-            <FieldLabel html-for="name-1" data-component-x-ray="FieldLabel"> Name </FieldLabel>
+        <FieldGroup data-component-x-ray="FieldGroup">
+          <Field data-component-x-ray="Field">
+            <FieldLabel for="name-1" data-component-x-ray="FieldLabel"> Name </FieldLabel>
             <Input
               id="name-1"
               name="name"
@@ -38,10 +38,8 @@ import { Input } from "@/shared/components/ui/input";
               data-component-x-ray-trigger="Input"
             />
           </Field>
-          <Field data-component-x-ray-field="Field">
-            <FieldLabel html-for="username-1" data-component-x-ray="FieldLabel">
-              Username
-            </FieldLabel>
+          <Field data-component-x-ray="Field">
+            <FieldLabel for="username-1" data-component-x-ray="FieldLabel"> Username </FieldLabel>
             <Input
               id="username-1"
               name="username"
